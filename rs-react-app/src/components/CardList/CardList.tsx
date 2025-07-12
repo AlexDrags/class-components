@@ -1,14 +1,13 @@
 import { Component } from 'react';
-import './App.css';
 
-class App extends Component {
+class CardList extends Component {
   render() {
     return (
       <>
-        <h1>TSX</h1>
+        <p>CardList</p>
       </>
     );
   }
 }
 
-export default App;
+export default { CardList };

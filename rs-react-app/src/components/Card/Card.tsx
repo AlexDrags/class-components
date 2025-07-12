@@ -1,14 +1,13 @@
 import { Component } from 'react';
-import './App.css';
 
-class App extends Component {
+class Card extends Component {
   render() {
     return (
       <>
-        <h1>TSX</h1>
+        <p>Card</p>
       </>
     );
   }
 }
 
-export default App;
+export default { Card };
