@@ -1,13 +1,13 @@
 import { Component } from 'react';
-
+import { CardList } from '../CardList/CardList';
 class Main extends Component {
   render() {
     return (
-      <>
-        <main>Main</main>
-      </>
+      <main>
+        <CardList />
+      </main>
     );
   }
 }
 
-export default { Main };
+export { Main };

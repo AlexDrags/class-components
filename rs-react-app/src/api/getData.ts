@@ -1,0 +1,37 @@
+async function getDataPrev() {
+  try {
+    const response = await fetch(
+      'http://universities.hipolabs.com/search?name=Middle&offset=1&limit=5',
+      {
+        method: 'GET',
+      }
+    );
+    if (response.status == 200) {
+      const data = await response.json();
+      console.log(data);
+      return data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function getDataNext() {
+  try {
+    const response = await fetch(
+      'http://universities.hipolabs.com/search?name=Middle&offset=2&limit=5',
+      {
+        method: 'GET',
+      }
+    );
+    if (response.status == 200) {
+      const data = await response.json();
+      console.log(data);
+      return data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { getDataPrev, getDataNext };
