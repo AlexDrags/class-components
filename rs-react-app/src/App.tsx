@@ -1,11 +1,9 @@
+import './App.css';
 import { Component, type ChangeEvent, type FormEvent } from 'react';
 import { Header } from './components/Header/Header';
-// import { Main } from './components/Main/Main';
-// import { CardList } from './components/CardList/CardList';
-import './App.css';
-// import { Button } from './components/Button/Button';
+import { Main } from './components/Main/Main';
+import { CardList } from './components/CardList/CardList';
 import { getDataPrev, getDataNext } from './api/getData';
-import { Card } from './components/Card/Card';
 import searchData from './api/search';
 
 class App extends Component<object, { value: string; universities: [] }> {
@@ -16,6 +14,12 @@ class App extends Component<object, { value: string; universities: [] }> {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePaginationPrev = this.handlePaginationPrev.bind(this);
     this.handlePaginationNext = this.handlePaginationNext.bind(this);
+  }
+
+  async componentDidMount() {
+    this.setState({
+      universities: await getDataPrev(),
+    });
   }
 
   async handleChange(event: ChangeEvent<HTMLInputElement>) {
@@ -43,11 +47,6 @@ class App extends Component<object, { value: string; universities: [] }> {
     });
   }
 
-  async componentDidMount() {
-    this.setState({
-      universities: await getDataPrev(),
-    });
-  }
   render() {
     return (
       <>
@@ -56,34 +55,9 @@ class App extends Component<object, { value: string; universities: [] }> {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
-        <div>
+        <Main>
           <h2>Universities</h2>
-
-          <ul className="cardItem">
-            {this.state.universities.map(
-              (
-                {
-                  name,
-                  country,
-                  web_pages,
-                }: {
-                  name: string;
-                  country: string;
-                  web_pages: string;
-                },
-                index
-              ) => {
-                return (
-                  <Card
-                    key={index}
-                    name={name}
-                    country={country}
-                    web_pages={web_pages}
-                  />
-                );
-              }
-            )}
-          </ul>
+          <CardList universities={this.state.universities} />
 
           <form onSubmit={this.handlePaginationPrev}>
             <button type="submit">1</button>
@@ -91,7 +65,7 @@ class App extends Component<object, { value: string; universities: [] }> {
           <form onSubmit={this.handlePaginationNext}>
             <button type="submit">2</button>
           </form>
-        </div>
+        </Main>
       </>
     );
   }

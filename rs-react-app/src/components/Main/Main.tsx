@@ -1,12 +1,11 @@
-import { Component } from 'react';
-import { CardList } from '../CardList/CardList';
-class Main extends Component {
+import React, { type ReactNode } from 'react';
+
+interface IChildren {
+  children: ReactNode;
+}
+class Main extends React.Component<IChildren> {
   render() {
-    return (
-      <main>
-        <CardList />
-      </main>
-    );
+    return <main>{this.props.children}</main>;
   }
 }
 
