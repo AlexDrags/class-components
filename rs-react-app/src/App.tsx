@@ -4,6 +4,7 @@ import { Header } from './components/Header/Header';
 import { Main } from './components/Main/Main';
 import { CardList } from './components/CardList/CardList';
 import { getDataPrev, getDataNext } from './api/getData';
+import { Pagination } from './components/Pagination/Pagination';
 import searchData from './api/search';
 
 class App extends Component<object, { value: string; universities: [] }> {
@@ -58,13 +59,10 @@ class App extends Component<object, { value: string; universities: [] }> {
         <Main>
           <h2>Universities</h2>
           <CardList universities={this.state.universities} />
-
-          <form onSubmit={this.handlePaginationPrev}>
-            <button type="submit">1</button>
-          </form>
-          <form onSubmit={this.handlePaginationNext}>
-            <button type="submit">2</button>
-          </form>
+          <Pagination
+            handlePaginationPrev={this.handlePaginationPrev}
+            handlePaginationNext={this.handlePaginationNext}
+          />
         </Main>
       </>
     );
