@@ -3,8 +3,10 @@ import { Component, type ChangeEvent, type FormEvent } from 'react';
 import { Header } from './components/Header/Header';
 import { Main } from './components/Main/Main';
 import { CardList } from './components/CardList/CardList';
-import { getDataPrev, getDataNext } from './api/getData';
+import { getDataPrev, getDataNext, getError } from './api/getData';
 import { Pagination } from './components/Pagination/Pagination';
+import { ErrorButton } from './components/ErrorButton/ErrorButton';
+import ErrorBoundary from './components/Error/Error';
 import searchData from './api/search';
 
 class App extends Component<object, { value: string; universities: [] }> {
@@ -15,6 +17,7 @@ class App extends Component<object, { value: string; universities: [] }> {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePaginationPrev = this.handlePaginationPrev.bind(this);
     this.handlePaginationNext = this.handlePaginationNext.bind(this);
+    this.handleError = this.handleError.bind(this);
   }
 
   async componentDidMount() {
@@ -25,6 +28,13 @@ class App extends Component<object, { value: string; universities: [] }> {
 
   async handleChange(event: ChangeEvent<HTMLInputElement>) {
     this.setState({ value: event.target.value });
+  }
+
+  async handleError(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    this.setState({
+      universities: await getError(),
+    });
   }
 
   async handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -51,19 +61,22 @@ class App extends Component<object, { value: string; universities: [] }> {
   render() {
     return (
       <>
-        <Header
-          value={this.state.value}
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-        />
-        <Main>
-          <h2>Universities</h2>
-          <CardList universities={this.state.universities} />
-          <Pagination
-            handlePaginationPrev={this.handlePaginationPrev}
-            handlePaginationNext={this.handlePaginationNext}
+        <ErrorBoundary>
+          <Header
+            value={this.state.value}
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
           />
-        </Main>
+          <Main>
+            <h2>Universities</h2>
+            <CardList universities={this.state.universities} />
+            <Pagination
+              handlePaginationPrev={this.handlePaginationPrev}
+              handlePaginationNext={this.handlePaginationNext}
+            />
+            <ErrorButton handleError={this.handleError} />
+          </Main>
+        </ErrorBoundary>
       </>
     );
   }
