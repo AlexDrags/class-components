@@ -8,6 +8,7 @@ import { Pagination } from './components/Pagination/Pagination';
 import { ErrorButton } from './components/ErrorButton/ErrorButton';
 import ErrorBoundary from './components/Error/Error';
 import searchData from './api/search';
+import saveSearchState from './api/saveSearchState';
 
 class App extends Component<object, { value: string; universities: [] }> {
   constructor(props: object) {
@@ -21,13 +22,22 @@ class App extends Component<object, { value: string; universities: [] }> {
   }
 
   async componentDidMount() {
-    this.setState({
-      universities: await getDataPrev(),
-    });
+    if (!localStorage.getItem('lastSearch')) {
+      this.setState({
+        universities: await getDataPrev(),
+      });
+    }
+    if (localStorage.getItem('lastSearch')) {
+      const lastQuery = localStorage.getItem('lastSearch');
+      this.setState({
+        universities: await searchData(`${lastQuery}`),
+      });
+    }
   }
 
   async handleChange(event: ChangeEvent<HTMLInputElement>) {
     this.setState({ value: event.target.value });
+    saveSearchState(event.target.value);
   }
 
   async handleError(event: FormEvent<HTMLFormElement>) {
