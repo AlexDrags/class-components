@@ -3,7 +3,7 @@ import { Header } from './components/Header/Header';
 // import { Main } from './components/Main/Main';
 // import { CardList } from './components/CardList/CardList';
 import './App.css';
-import { Button } from './components/Button/Button';
+// import { Button } from './components/Button/Button';
 import { getDataPrev, getDataNext } from './api/getData';
 import { Card } from './components/Card/Card';
 import searchData from './api/search';
@@ -51,22 +51,14 @@ class App extends Component<object, { value: string; universities: [] }> {
   render() {
     return (
       <>
-        <Header>
-          <form onSubmit={this.handleSubmit}>
-            <Button>Search</Button>
-            <input
-              type="text"
-              name="search"
-              id="search"
-              value={this.state.value}
-              onChange={this.handleChange}
-              placeholder="
-Please enter the full name of the country"
-            />
-          </form>
-        </Header>
+        <Header
+          value={this.state.value}
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+        />
         <div>
           <h2>Universities</h2>
+
           <ul className="cardItem">
             {this.state.universities.map(
               (
@@ -92,6 +84,7 @@ Please enter the full name of the country"
               }
             )}
           </ul>
+
           <form onSubmit={this.handlePaginationPrev}>
             <button type="submit">1</button>
           </form>

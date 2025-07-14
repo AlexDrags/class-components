@@ -1,15 +1,13 @@
-// import { Component, type ChangeEvent, type FormEvent } from 'react';
-// import { Button } from '../Button/Button';
-// import { Search } from '../Search/Search';
-// import searchData from '../../api/search';
+import React, { type ChangeEvent, type FormEvent } from 'react';
+import { Button } from '../Button/Button';
 
-import React, { type ReactNode } from 'react';
-
-interface IProps {
-  children: ReactNode;
+interface Iprops {
+  handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  value: string;
 }
-// class Header extends Component<object, { value: string }> {
-class Header extends React.Component<IProps> {
+
+class Header extends React.Component<Iprops> {
   // constructor(props: object) {
   //   super(props);
   //   this.state = { value: '' };
@@ -18,33 +16,22 @@ class Header extends React.Component<IProps> {
   //   this.handleSubmit = this.handleSubmit.bind(this);
   // }
 
-  // handleChange(event: ChangeEvent<HTMLInputElement>) {
-  //   this.setState({ value: event.target.value });
-  // }
-
-  // handleSubmit(event: FormEvent<HTMLFormElement>) {
-  //   alert('Отправленное имя: ' + this.state.value);
-  //   event.preventDefault();
-  // }
-
   render() {
     return (
       <>
         <header>
-          {this.props.children}
-          {/* <form onSubmit={this.handleSubmit}> */}
-          {/* <Search />
-            <Button /> */}
-          {/* <input
+          <form onSubmit={this.props.handleSubmit}>
+            <input
               type="text"
               name="search"
               id="search"
-              value={this.state.value}
-              onChange={this.handleChange}
+              value={this.props.value}
+              onChange={this.props.handleChange}
+              placeholder="
+Please enter the full name of the country"
             />
-            ;
-            <button type="submit">Search</button>;
-          </form> */}
+            <Button typeButton={'submit'}>Search universiti</Button>
+          </form>
         </header>
       </>
     );

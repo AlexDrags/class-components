@@ -10,6 +10,8 @@ async function getDataPrev() {
       const data = await response.json();
       console.log(data);
       return data;
+    } else {
+      throw new Error('Test error');
     }
   } catch (error) {
     console.log(error);
