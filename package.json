@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "cd  ./rs-react-app  vite",
+    "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepare": ".. husky",
+    "prepare": "husky",
     "format:fix": "prettier --write ."
   },
   "dependencies": {
