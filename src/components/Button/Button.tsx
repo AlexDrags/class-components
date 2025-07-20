@@ -2,7 +2,7 @@ import React, { type ReactNode } from 'react';
 
 type ButtonType = 'button' | 'submit' | 'reset';
 interface IProps {
-  children: ReactNode;
+  children?: ReactNode;
   typeButton: ButtonType;
 }
 
