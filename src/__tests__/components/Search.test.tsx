@@ -8,4 +8,12 @@ describe('SearchField', () => {
     const field = screen.getByRole('textbox');
     expect(field).toBeInTheDocument();
   });
+  it('it should displays previously saved search term from localStorage', () => {
+    render(<Search />);
+    const field = screen.getByRole('textbox') as HTMLInputElement;
+    const value = field.value;
+    const lStorage = localStorage.getItem('lastSearch');
+    if (lStorage !== null) expect(value).toEqual(lStorage);
+    if (lStorage === null) expect(value).toEqual('');
+  });
 });
