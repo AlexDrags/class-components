@@ -14,6 +14,12 @@ describe('SearchField', () => {
     const value = field.value;
     const lStorage = localStorage.getItem('lastSearch');
     if (lStorage !== null) expect(value).toEqual(lStorage);
+  });
+  it('it should displays empty field if not saved search term from localStorage', () => {
+    render(<Search />);
+    const field = screen.getByRole('textbox') as HTMLInputElement;
+    const value = field.value;
+    const lStorage = localStorage.getItem('lastSearch');
     if (lStorage === null) expect(value).toEqual('');
   });
 });
