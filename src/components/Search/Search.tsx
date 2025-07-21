@@ -1,7 +1,5 @@
-import { type ChangeEvent } from 'react';
-
 interface ISearch {
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (prev: string) => void;
   value: string;
 }
 
@@ -12,7 +10,7 @@ export default function Search({ onChange, value }: ISearch) {
       name="search"
       id="search"
       value={value}
-      onChange={onChange}
+      onChange={() => onChange}
       placeholder="
 Please enter the full name of the country"
     />
