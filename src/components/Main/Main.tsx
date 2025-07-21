@@ -1,12 +1,8 @@
-import React, { type ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
 interface IChildren {
   children: ReactNode;
 }
-class Main extends React.Component<IChildren> {
-  render() {
-    return <main>{this.props.children}</main>;
-  }
+export default function Main({ children }: IChildren) {
+  return <main>{children}</main>;
 }
-
-export { Main };

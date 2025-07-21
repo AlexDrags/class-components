@@ -18,5 +18,3 @@ export default function Header({ handleSubmit, handleChange, value }: Iprops) {
     </header>
   );
 }
-
-export { Header };

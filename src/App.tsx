@@ -1,8 +1,8 @@
 import './App.css';
 import { Component, type ChangeEvent, type FormEvent } from 'react';
-import { Header } from './components/Header/Header';
-import { Main } from './components/Main/Main';
-import { CardList } from './components/CardList/CardList';
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
+import CardList from './components/CardList/CardList';
 import { getDataPrev, getDataNext, getError } from './api/getData';
 import { Pagination } from './components/Pagination/Pagination';
 import { ErrorButton } from './components/ErrorButton/ErrorButton';

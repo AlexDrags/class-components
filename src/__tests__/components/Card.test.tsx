@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Card } from '../../components/Card/Card';
+import Card from '../../components/Card/Card';
 interface ICard {
   name: string;
   country: string;

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { CardList } from '../../components/CardList/CardList';
+import CardList from '../../components/CardList/CardList';
 import '@testing-library/jest-dom/vitest';
-import { Card } from '../../components/Card/Card';
+import Card from '../../components/Card/Card';
 
 interface ICard {
   name: string;
