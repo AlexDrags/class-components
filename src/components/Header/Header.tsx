@@ -1,5 +1,6 @@
-import React, { type ChangeEvent, type FormEvent } from 'react';
-import { Button } from '../Button/Button';
+import { type ChangeEvent, type FormEvent } from 'react';
+import Button from '../Button/Button';
+import Search from '../Search/Search';
 
 interface Iprops {
   handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
@@ -7,27 +8,15 @@ interface Iprops {
   value: string;
 }
 
-class Header extends React.Component<Iprops> {
-  render() {
-    return (
-      <>
-        <header>
-          <form onSubmit={this.props.handleSubmit}>
-            <input
-              type="text"
-              name="search"
-              id="search"
-              value={this.props.value}
-              onChange={this.props.handleChange}
-              placeholder="
-Please enter the full name of the country"
-            />
-            <Button typeButton={'submit'}>Search universiti</Button>
-          </form>
-        </header>
-      </>
-    );
-  }
+export default function Header({ handleSubmit, handleChange, value }: Iprops) {
+  return (
+    <header>
+      <form onSubmit={handleSubmit}>
+        <Search value={value} onChange={handleChange} />
+        <Button typeButton={'submit'}>Search universiti</Button>
+      </form>
+    </header>
+  );
 }
 
 export { Header };

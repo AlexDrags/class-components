@@ -1,15 +1,11 @@
-import React, { type ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
 type ButtonType = 'button' | 'submit' | 'reset';
-interface IProps {
+interface IButton {
   children?: ReactNode;
   typeButton: ButtonType;
 }
 
-class Button extends React.Component<IProps> {
-  render() {
-    return <button type={this.props.typeButton}>{this.props.children}</button>;
-  }
+export default function Button({ children, typeButton }: IButton) {
+  return <button type={typeButton}>{children}</button>;
 }
-
-export { Button };
