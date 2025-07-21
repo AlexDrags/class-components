@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1753043574818" clover="3.2.0">
-  <project timestamp="1753043574818" name="All files">
-    <metrics statements="297" coveredstatements="31" conditionals="14" coveredconditionals="3" methods="14" coveredmethods="3" elements="325" coveredelements="37" complexity="0" loc="297" ncloc="297" packages="11" files="14" classes="14"/>
+<coverage generated="1753097534220" clover="3.2.0">
+  <project timestamp="1753097534220" name="All files">
+    <metrics statements="298" coveredstatements="33" conditionals="15" coveredconditionals="4" methods="14" coveredmethods="4" elements="327" coveredelements="41" complexity="0" loc="298" ncloc="298" packages="11" files="14" classes="14"/>
     <package name="src">
       <metrics statements="96" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="App.tsx" path="C:\Users\ksander-88\Documents\class-components\src\App.tsx">
+      <file name="App.tsx" path="/workspaces/class-components/src/App.tsx">
         <metrics statements="85" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="2" count="0" type="stmt"/>
@@ -92,7 +92,7 @@
         <line num="93" count="0" type="stmt"/>
         <line num="95" count="0" type="stmt"/>
       </file>
-      <file name="main.tsx" path="C:\Users\ksander-88\Documents\class-components\src\main.tsx">
+      <file name="main.tsx" path="/workspaces/class-components/src/main.tsx">
         <metrics statements="11" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="2" count="0" type="stmt"/>
@@ -109,7 +109,7 @@
     </package>
     <package name="src.api">
       <metrics statements="67" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="3" coveredmethods="0"/>
-      <file name="getData.ts" path="C:\Users\ksander-88\Documents\class-components\src\api\getData.ts">
+      <file name="getData.ts" path="/workspaces/class-components/src/api/getData.ts">
         <metrics statements="53" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="2" count="0" type="stmt"/>
@@ -165,13 +165,13 @@
         <line num="54" count="0" type="stmt"/>
         <line num="55" count="0" type="stmt"/>
       </file>
-      <file name="saveSearchState.ts" path="C:\Users\ksander-88\Documents\class-components\src\api\saveSearchState.ts">
+      <file name="saveSearchState.ts" path="/workspaces/class-components/src/api/saveSearchState.ts">
         <metrics statements="3" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
       </file>
-      <file name="search.ts" path="C:\Users\ksander-88\Documents\class-components\src\api\search.ts">
+      <file name="search.ts" path="/workspaces/class-components/src/api/search.ts">
         <metrics statements="11" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="2" count="0" type="stmt"/>
@@ -188,7 +188,7 @@
     </package>
     <package name="src.components.Button">
       <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
-      <file name="Button.tsx" path="C:\Users\ksander-88\Documents\class-components\src\components\Button\Button.tsx">
+      <file name="Button.tsx" path="/workspaces/class-components/src/components/Button/Button.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
@@ -200,59 +200,60 @@
     </package>
     <package name="src.components.Card">
       <metrics statements="12" coveredstatements="12" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
-      <file name="Card.tsx" path="C:\Users\ksander-88\Documents\class-components\src\components\Card\Card.tsx">
+      <file name="Card.tsx" path="/workspaces/class-components/src/components/Card/Card.tsx">
         <metrics statements="12" coveredstatements="12" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.CardList">
-      <metrics statements="28" coveredstatements="13" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
-      <file name="CardList.tsx" path="C:\Users\ksander-88\Documents\class-components\src\components\CardList\CardList.tsx">
-        <metrics statements="28" coveredstatements="13" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <metrics statements="29" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="CardList.tsx" path="/workspaces/class-components/src/components/CardList/CardList.tsx">
+        <metrics statements="29" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
+        <line num="13" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="17" count="0" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Error">
       <metrics statements="31" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="Error.tsx" path="C:\Users\ksander-88\Documents\class-components\src\components\Error\Error.tsx">
+      <file name="Error.tsx" path="/workspaces/class-components/src/components/Error/Error.tsx">
         <metrics statements="31" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="14" count="0" type="stmt"/>
@@ -289,7 +290,7 @@
     </package>
     <package name="src.components.ErrorButton">
       <metrics statements="9" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="ErrorButton.tsx" path="C:\Users\ksander-88\Documents\class-components\src\components\ErrorButton\ErrorButton.tsx">
+      <file name="ErrorButton.tsx" path="/workspaces/class-components/src/components/ErrorButton/ErrorButton.tsx">
         <metrics statements="9" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="7" count="0" type="stmt"/>
@@ -304,7 +305,7 @@
     </package>
     <package name="src.components.Header">
       <metrics statements="22" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="Header.tsx" path="C:\Users\ksander-88\Documents\class-components\src\components\Header\Header.tsx">
+      <file name="Header.tsx" path="/workspaces/class-components/src/components/Header/Header.tsx">
         <metrics statements="22" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="2" count="0" type="stmt"/>
@@ -332,7 +333,7 @@
     </package>
     <package name="src.components.Main">
       <metrics statements="6" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="Main.tsx" path="C:\Users\ksander-88\Documents\class-components\src\components\Main\Main.tsx">
+      <file name="Main.tsx" path="/workspaces/class-components/src/components/Main/Main.tsx">
         <metrics statements="6" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="6" count="0" type="stmt"/>
@@ -344,7 +345,7 @@
     </package>
     <package name="src.components.Pagination">
       <metrics statements="14" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="Pagination.tsx" path="C:\Users\ksander-88\Documents\class-components\src\components\Pagination\Pagination.tsx">
+      <file name="Pagination.tsx" path="/workspaces/class-components/src/components/Pagination/Pagination.tsx">
         <metrics statements="14" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="8" count="0" type="stmt"/>
@@ -363,15 +364,15 @@
       </file>
     </package>
     <package name="src.components.Search">
-      <metrics statements="6" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="Search.tsx" path="C:\Users\ksander-88\Documents\class-components\src\components\Search\Search.tsx">
-        <metrics statements="6" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
+      <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="Search.tsx" path="/workspaces/class-components/src/components/Search/Search.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
       </file>
     </package>
   </project>
