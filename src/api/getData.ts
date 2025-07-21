@@ -1,22 +1,22 @@
 async function getDataPrev() {
   return [];
-  // try {
-  //   const response = await fetch(
-  //     'http://universities.hipolabs.com/search?name=Middle&offset=1&limit=5',
-  //     {
-  //       method: 'GET',
-  //     }
-  //   );
-  //   if (response.status == 200) {
-  //     const data = await response.json();
-  //     console.log(data);
-  //     return data;
-  //   } else {
-  //     throw new Error('Test error');
-  //   }
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  try {
+    const response = await fetch(
+      'http://universities.hipolabs.com/search?name=Middle&offset=1&limit=5',
+      {
+        method: 'GET',
+      }
+    );
+    if (response.status == 200) {
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } else {
+      throw new Error('Test error');
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 async function getDataNext() {
