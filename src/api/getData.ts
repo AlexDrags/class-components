@@ -1,5 +1,4 @@
 async function getDataPrev() {
-  return [];
   try {
     const response = await fetch(
       'http://universities.hipolabs.com/search?name=Middle&offset=1&limit=5',
