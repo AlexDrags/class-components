@@ -13,7 +13,17 @@ export default defineConfig({
         'src/index.{js,jsx,ts,tsx}',
         'src/setupTests.{js,ts}',
         'src/**/*.d.ts',
+        '**/node_modules/**',
       ],
+      provider: 'v8', // или "c8" (устаревший)
+      thresholds: {
+        statements: 80,
+        branches: 50,
+        functions: 50,
+        lines: 50,
+      },
+      // Дополнительные настройки (опционально)
+      reporter: ['text', 'json', 'html'], // Форматы отчёта
     },
   },
 });

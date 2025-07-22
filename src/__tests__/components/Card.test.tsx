@@ -15,6 +15,6 @@ describe('Card', () => {
   const { name, country, web_pages } = card;
   it('should render card when load card data', () => {
     render(<Card name={name} country={country} web_pages={web_pages} />);
+    expect(screen.getByText(/Country/i)).toBeInTheDocument();
   });
-  screen.debug();
 });
