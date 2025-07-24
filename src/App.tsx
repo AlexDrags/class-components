@@ -1,6 +1,7 @@
 import './App.css';
+import { useState } from 'react';
 // import { useState, type ChangeEvent, type FormEvent } from 'react';
-// import Header from './components/Header/Header';
+import Header from './components/Header/Header';
 // import Main from './components/Main/Main';
 // import CardList from './components/CardList/CardList';
 // import { getDataPrev, getDataNext, getError } from './api/getData';
@@ -11,9 +12,15 @@ import './App.css';
 // import searchData from './api/search';
 // import saveSearchState from './api/saveSearchState';
 
+interface ICard {
+  name: string;
+  country: string;
+  web_pages: string;
+}
+
 export default function App() {
-  // const [value, setValue] = useState('');
-  // const [universities, setUniversities] = useState([]);
+  const [value, setValue] = useState('');
+  const [universities, setUniversities] = useState<ICard[]>([]);
   // constructor(props: object) {
   //   super(props);
   //   this.state = { value: '', universities: [] };
@@ -66,6 +73,12 @@ export default function App() {
 
   return (
     <>
+      <Header
+        value={value}
+        setValue={setValue}
+        universities={universities}
+        setUniversities={setUniversities}
+      />
       {/* <ErrorBoundary>
         <Header value={value} handleChangeValue={setValue} />
         <Main>

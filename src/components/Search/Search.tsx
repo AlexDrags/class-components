@@ -1,16 +1,16 @@
 interface ISearch {
-  onChange: (prev: string) => void;
   value: string;
+  onChange: (value: string) => void;
 }
 
-export default function Search({ onChange, value }: ISearch) {
+export default function Search({ value, onChange }: ISearch) {
   return (
     <input
       type="text"
       name="search"
       id="search"
       value={value}
-      onChange={() => onChange}
+      onChange={(e) => onChange(e.target.value)}
       placeholder="
 Please enter the full name of the country"
     />
