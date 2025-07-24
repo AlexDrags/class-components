@@ -1,7 +1,10 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getDataPrev } from './api/getData';
 // import { useState, type ChangeEvent, type FormEvent } from 'react';
 import Header from './components/Header/Header';
+import ErrorBoundary from './components/Error/Error';
+import CardList from './components/CardList/CardList';
 // import Main from './components/Main/Main';
 // import CardList from './components/CardList/CardList';
 // import { getDataPrev, getDataNext, getError } from './api/getData';
@@ -21,6 +24,13 @@ interface ICard {
 export default function App() {
   const [value, setValue] = useState('');
   const [universities, setUniversities] = useState<ICard[]>([]);
+  useEffect(() => {
+    async function fetchData() {
+      const response = await getDataPrev();
+      setUniversities(response);
+    }
+    fetchData();
+  }, []);
   // constructor(props: object) {
   //   super(props);
   //   this.state = { value: '', universities: [] };
@@ -73,17 +83,19 @@ export default function App() {
 
   return (
     <>
-      <Header
-        value={value}
-        setValue={setValue}
-        universities={universities}
-        setUniversities={setUniversities}
-      />
+      <ErrorBoundary>
+        <Header
+          value={value}
+          setValue={setValue}
+          universities={universities}
+          setUniversities={setUniversities}
+        />
+        <CardList universities={universities} />
+      </ErrorBoundary>
       {/* <ErrorBoundary>
-        <Header value={value} handleChangeValue={setValue} />
         <Main>
           <h2>Universities</h2>
-          <CardList universities={this.state.universities} />
+
           <Pagination
             handlePaginationPrev={this.handlePaginationPrev}
             handlePaginationNext={this.handlePaginationNext}
