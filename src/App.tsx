@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useReducer } from 'react';
 import { getDataPrev } from './api/getData';
 import Header from './components/Header/Header';
 import ErrorBoundary from './components/Error/Error';
@@ -7,6 +7,7 @@ import CardList from './components/CardList/CardList';
 import Main from './components/Main/Main';
 import searchData from './api/search';
 import { Pagination } from './components/Pagination/Pagination';
+import quryReducer from './reducers/queryReducer';
 
 interface ICard {
   name: string;
@@ -15,7 +16,7 @@ interface ICard {
 }
 
 export default function App() {
-  const [value, setValue] = useState('');
+  const [query, dispatch] = useReducer(quryReducer, '');
   const [universities, setUniversities] = useState<ICard[]>([]);
   useEffect(() => {
     async function fetchData() {
@@ -32,12 +33,19 @@ export default function App() {
     fetchData();
   }, []);
 
+  function handleChangeQuery(query: string) {
+    dispatch({
+      type: 'change',
+      query: query,
+    });
+  }
+
   return (
     <>
       <ErrorBoundary>
         <Header
-          value={value}
-          setValue={setValue}
+          value={query}
+          setValue={handleChangeQuery}
           universities={universities}
           setUniversities={setUniversities}
         />
