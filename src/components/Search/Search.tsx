@@ -1,9 +1,12 @@
+import { useContext } from 'react';
+import { QueryTextContext } from '../../context/context';
+
 interface ISearch {
-  value: string;
   onChange: (value: string) => void;
 }
 
-export default function Search({ value, onChange }: ISearch) {
+export default function Search({ onChange }: ISearch) {
+  const value = useContext(QueryTextContext);
   return (
     <input
       type="text"

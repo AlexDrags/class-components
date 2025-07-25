@@ -8,7 +8,8 @@ import Main from './components/Main/Main';
 import searchData from './api/search';
 import { Pagination } from './components/Pagination/Pagination';
 import quryReducer from './reducers/queryReducer';
-
+import { QueryTextContext } from './context/context';
+import ContextComponent from './components/ContextComponent';
 interface ICard {
   name: string;
   country: string;
@@ -43,20 +44,22 @@ export default function App() {
   return (
     <>
       <ErrorBoundary>
-        <Header
-          value={query}
-          setValue={handleChangeQuery}
-          universities={universities}
-          setUniversities={setUniversities}
-        />
-        <Main>
-          <h2>Universities</h2>
-          <CardList universities={universities} />
-          <Pagination
-            handlePaginationPrev={() => {}}
-            handlePaginationNext={() => {}}
+        <QueryTextContext value={query}>
+          <Header
+            setValue={handleChangeQuery}
+            universities={universities}
+            setUniversities={setUniversities}
           />
-        </Main>
+          <Main>
+            <ContextComponent />
+            <h2>Universities</h2>
+            <CardList universities={universities} />
+            <Pagination
+              handlePaginationPrev={() => {}}
+              handlePaginationNext={() => {}}
+            />
+          </Main>
+        </QueryTextContext>
       </ErrorBoundary>
     </>
   );
