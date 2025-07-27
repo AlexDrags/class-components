@@ -1,8 +1,9 @@
 ul {
   list-style-type: none;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: top;
+  align-items: center;
   gap: 15px;
 }

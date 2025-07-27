@@ -16,9 +16,9 @@ export default function CardList({ universities }: IProps) {
       {universities.map(
         (
           {
-            name,
+            // name,
             country,
-            web_pages,
+            // web_pages,
           }: {
             name: string;
             country: string;
@@ -29,9 +29,9 @@ export default function CardList({ universities }: IProps) {
           return (
             <Card
               key={index}
-              name={name}
+              // name={name}
               country={country}
-              web_pages={web_pages}
+              // web_pages={web_pages}
             />
           );
         }

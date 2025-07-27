@@ -1,23 +1,23 @@
-import React, { type FormEvent } from 'react';
+import { Link } from 'react-router';
 
-interface IPaginationProps {
-  handlePaginationPrev: (event: FormEvent<HTMLFormElement>) => void;
-  handlePaginationNext: (event: FormEvent<HTMLFormElement>) => void;
+// interface IPaginationProps {
+//   handlePaginationPrev: (event: FormEvent<HTMLFormElement>) => void;
+//   handlePaginationNext: (event: FormEvent<HTMLFormElement>) => void;
+// }
+
+export default function Pagination() {
+  return (
+    <>
+      <form onSubmit={() => {}}>
+        <Link to={'/page1'} type="submit">
+          1
+        </Link>
+      </form>
+      <form onSubmit={() => {}}>
+        <Link to={'/page2'} type="submit">
+          2
+        </Link>
+      </form>
+    </>
+  );
 }
-
-class Pagination extends React.Component<IPaginationProps> {
-  render() {
-    return (
-      <>
-        <form onSubmit={this.props.handlePaginationPrev}>
-          <button type="submit">1</button>
-        </form>
-        <form onSubmit={this.props.handlePaginationNext}>
-          <button type="submit">2</button>
-        </form>
-      </>
-    );
-  }
-}
-
-export { Pagination };
