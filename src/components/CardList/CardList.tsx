@@ -51,7 +51,17 @@ export default function CardList({ universities }: IProps) {
           }
         )}
       </ul>
-      {description !== null ? <Description description={description} /> : ''} ;
+      {description !== null ? (
+        <>
+          <Description description={description} />{' '}
+          <button onClick={() => setDescription(null)}>
+            Close description
+          </button>
+        </>
+      ) : (
+        ''
+      )}{' '}
+      ;
     </>
   );
 }
