@@ -1,22 +1,36 @@
-import { Link } from 'react-router';
+import {
+  handlePaginationNext,
+  handlePaginationPrev,
+} from '../../utils/handlePagination';
+interface ICard {
+  name: string;
+  country: string;
+  web_pages: string;
+}
+interface IPaginationProps {
+  universities: ICard[];
+  setUniversities: (prev: ICard[]) => void;
+}
 
-// interface IPaginationProps {
-//   handlePaginationPrev: (event: FormEvent<HTMLFormElement>) => void;
-//   handlePaginationNext: (event: FormEvent<HTMLFormElement>) => void;
-// }
-
-export default function Pagination() {
+export default function Pagination({
+  universities,
+  setUniversities,
+}: IPaginationProps) {
   return (
     <>
-      <form onSubmit={() => {}}>
-        <Link to={'/page1'} type="submit">
-          1
-        </Link>
+      <form
+        action={() => {
+          handlePaginationPrev(universities, setUniversities);
+        }}
+      >
+        <button type="submit">1</button>
       </form>
-      <form onSubmit={() => {}}>
-        <Link to={'/page2'} type="submit">
-          2
-        </Link>
+      <form
+        action={() => {
+          handlePaginationNext(universities, setUniversities);
+        }}
+      >
+        <button type="submit">2</button>
       </form>
     </>
   );

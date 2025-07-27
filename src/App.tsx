@@ -9,7 +9,6 @@ import searchData from './api/search';
 import Pagination from './components/Pagination/Pagination';
 import quryReducer from './reducers/queryReducer';
 import { QueryTextContext } from './context/context';
-// import ContextComponent from './components/ContextComponent';
 interface ICard {
   name: string;
   country: string;
@@ -18,7 +17,6 @@ interface ICard {
 
 export default function App() {
   const [query, dispatch] = useReducer(quryReducer, '');
-  // const [activeCard, setActiveCard] = useState(null);
   const [universities, setUniversities] = useState<ICard[]>([]);
   useEffect(() => {
     async function fetchData() {
@@ -52,14 +50,13 @@ export default function App() {
             setUniversities={setUniversities}
           />
           <Main>
-            {/* <ContextComponent /> */}
             <h2>Universities</h2>
             <div className="wrapper">
               <CardList universities={universities} />
             </div>
             <Pagination
-            // handlePaginationPrev={() => {}}
-            // handlePaginationNext={() => {}}
+              universities={universities}
+              setUniversities={setUniversities}
             />
           </Main>
         </QueryTextContext>

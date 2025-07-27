@@ -1,17 +1,40 @@
 import './style.css';
 import { Link } from 'react-router';
+// import { useRef } from 'react';
 
-// interface ICard {
-//   name: string;
-//   country: string;
-//   web_pages: string;
-// }
+interface ICardDecsription {
+  name: string;
+  country: string;
+  web_pages: string;
+}
 
-// export default function Card({ name, country, web_pages }: ICard) {
-export default function Card({ country }: { country: string }) {
+interface ICard {
+  name: string;
+  country: string;
+  web_pages: string;
+  description: ICardDecsription | null;
+  setDescription: (description: ICardDecsription) => void;
+}
+
+export default function Card({
+  name,
+  country,
+  web_pages,
+  setDescription,
+}: ICard) {
+  const cardRef = {
+    name: name,
+    country: country,
+    web_pages: web_pages,
+  };
   return (
     <li>
-      <Link to={'#'}>
+      <Link
+        to={'#'}
+        onClick={() => {
+          setDescription(cardRef);
+        }}
+      >
         {/* <p>{name}</p> */}
         <p>Country: {country}</p>
         {/* <p>Web-page: {web_pages}</p> */}
