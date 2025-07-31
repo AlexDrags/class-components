@@ -1,7 +1,9 @@
 import './style.css';
 import Card from '../Card/Card';
 import Description from '../Description/Description';
+import FlyoutElement from '../FlyoutElement/FlyoutElement';
 import { useState } from 'react';
+import { useStoreStateCheckCards } from '../../store/store';
 
 interface ICard {
   name: string;
@@ -20,6 +22,7 @@ interface IProps {
 }
 export default function CardList({ universities }: IProps) {
   const [description, setDescription] = useState<ICardDecsription | null>(null);
+  const checkedCards = useStoreStateCheckCards((state) => state.checkedCards);
   return universities.length <= 0 ? (
     <p>Not find universities.</p>
   ) : (
@@ -58,6 +61,7 @@ export default function CardList({ universities }: IProps) {
       ) : (
         ''
       )}{' '}
+      {checkedCards.length > 0 ? <FlyoutElement /> : ''}
     </>
   );
 }

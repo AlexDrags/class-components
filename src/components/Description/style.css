@@ -1,3 +1,7 @@
+.description {
+  align-self: flex-start;
+}
+
 .wrapper-description {
   display: flex;
   flex-direction: column;
