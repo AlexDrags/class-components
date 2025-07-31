@@ -8,6 +8,16 @@ export default function Layout() {
         <Link to={'/about'}>About</Link>
       </nav>
       <Outlet />
+      <footer>
+        <a
+          href="https://github.com/AlexDrags"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub author
+        </a>
+        <p>2025.</p>
+      </footer>
     </div>
   );
 }

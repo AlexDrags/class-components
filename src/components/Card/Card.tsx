@@ -1,5 +1,6 @@
 import './style.css';
 import { Link } from 'react-router';
+import { useStoreStateCheckCards } from '../../store/store';
 
 interface ICardDecsription {
   name: string;
@@ -26,8 +27,22 @@ export default function Card({
     country: country,
     web_pages: web_pages,
   };
+  const checkCard = useStoreStateCheckCards((state) => state.addToCheckedCards);
+  // const checkedCards = useStoreStateCheckCards((state) => state.checkedCards);
+  const removeFromCheckCards = useStoreStateCheckCards(
+    (state) => state.removeFromCheckCards
+  );
   return (
     <li>
+      <input
+        type="checkbox"
+        name={name}
+        id={name}
+        onChange={(e) => {
+          if (!e.target.checked) removeFromCheckCards(e.target.id);
+          if (e.target.checked) checkCard(cardRef);
+        }}
+      />
       <Link
         to={'#'}
         onClick={() => {

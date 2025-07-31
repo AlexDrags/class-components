@@ -1,4 +1,3 @@
-import { Link } from 'react-router';
 export default function AboutPage() {
   return (
     <>
@@ -12,7 +11,9 @@ export default function AboutPage() {
         balance. Quick learner, problem solver, and always eager to take on new
         challenges.
       </p>
-      <Link to={'https://rs.school/courses/reactjs'}>RS School React</Link>
+      <a target="blank" href="https://rs.school/courses/reactjs">
+        RS School React
+      </a>
     </>
   );
 }

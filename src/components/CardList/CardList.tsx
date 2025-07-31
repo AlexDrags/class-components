@@ -26,21 +26,18 @@ export default function CardList({ universities }: IProps) {
     <>
       <ul className="cardItem">
         {universities.map(
-          (
-            {
-              name,
-              country,
-              web_pages,
-            }: {
-              name: string;
-              country: string;
-              web_pages: string;
-            },
-            index
-          ) => {
+          ({
+            name,
+            country,
+            web_pages,
+          }: {
+            name: string;
+            country: string;
+            web_pages: string;
+          }) => {
             return (
               <Card
-                key={index}
+                key={name}
                 name={name}
                 country={country}
                 web_pages={web_pages}

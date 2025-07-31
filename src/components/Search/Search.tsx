@@ -12,7 +12,7 @@ export default function Search() {
       value={queryValue}
       onChange={(e) => changeQueryValue(e.target.value)}
       placeholder="
-Please enter country: example Kuwait"
+Enter country: example Kuwait or Jordan"
     />
   );
 }

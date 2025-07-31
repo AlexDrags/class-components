@@ -11,10 +11,11 @@ export default function Description({ description }: IDecsription) {
     <div className="description">
       <h2>Description:</h2>
       <div className="wrapper-description">
-        <p>{description.name}</p>
-        <p>{description.country}</p>
-        <p>{description.web_pages}</p>
+        <p>Name of universities: {description.name}</p>
+        <p>Country: {description.country}</p>
+        <p>Web-page: {description.web_pages}</p>
       </div>
+      {/* <button onClick={() => setDescription(null)}>Close description</button> */}
     </div>
   );
 }
