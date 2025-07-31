@@ -8,7 +8,6 @@ async function getDataPrev() {
     );
     if (response.status == 200) {
       const data = await response.json();
-      console.log(data);
       return data;
     } else {
       throw new Error('Test error');
@@ -28,7 +27,6 @@ async function getDataNext() {
     );
     if (response.status == 200) {
       const data = await response.json();
-      console.log(data);
       return data;
     }
   } catch (error) {
@@ -46,7 +44,6 @@ async function getError() {
     );
     if (response.status == 200) {
       const data = await response.json();
-      console.log(data);
       return data;
     }
   } catch (error) {

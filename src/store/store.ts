@@ -41,9 +41,7 @@ export const useStoreStateCheckCards = create<ICheckCardsState>()(
           const filterCards = state.checkedCards.filter(
             (item: ICardDecsription) => item.name !== id
           );
-          console.log(state.checkedCards);
           state.checkedCards = filterCards;
-          console.log(state.checkedCards);
         }),
       clearCheckedCards: () => set({ checkedCards: [] }),
     }))

@@ -1,8 +1,36 @@
 import './style.css';
+import { useEffect, useReducer } from 'react';
+import themeReducer from '../../reducers/themeReducer';
 import { Outlet, Link } from 'react-router';
+
 export default function Layout() {
+  const [theme, dispatch] = useReducer(themeReducer, 'light');
+  const rootElement = document.body;
+  function handleChangeThemeColor(themeColor: string) {
+    dispatch({
+      type: 'changeTheme',
+      themeColor: themeColor,
+    });
+  }
+  useEffect(() => {
+    if (rootElement && theme === 'dark') rootElement?.classList.add('dark');
+    if (rootElement && theme === 'light') rootElement?.classList.remove('dark');
+  }, [theme, rootElement]);
   return (
     <div>
+      <label htmlFor="theme">
+        Current theme color: {`${theme}`}
+        <input
+          type="checkbox"
+          name="theme"
+          id="theme"
+          onChange={(e) => {
+            if (e.target.checked === true) handleChangeThemeColor('dark');
+            if (e.target.checked !== true) handleChangeThemeColor('light');
+          }}
+        />
+      </label>
+
       <nav className="navigation">
         <Link to={'/'}>Home</Link>
         <Link to={'/about'}>About</Link>

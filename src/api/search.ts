@@ -6,6 +6,5 @@ export default async function searchData(queryString: string) {
     }
   );
   const data = await response.json();
-  console.log(data);
   return data;
 }

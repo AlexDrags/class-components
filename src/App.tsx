@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { getDataPrev } from './api/getData';
 import Header from './components/Header/Header';
 import ErrorBoundary from './components/Error/Error';
@@ -7,9 +7,7 @@ import CardList from './components/CardList/CardList';
 import Main from './components/Main/Main';
 import searchData from './api/search';
 import Pagination from './components/Pagination/Pagination';
-// import quryReducer from './reducers/queryReducer';
-// import { QueryTextContext } from './context/context';
-// import { useStore } from './store/store';
+import { ThemeContext } from './context/context';
 interface ICard {
   name: string;
   country: string;
@@ -17,7 +15,7 @@ interface ICard {
 }
 
 export default function App() {
-  // const [query, dispatch] = useReducer(quryReducer, '');
+  const theme = useContext(ThemeContext);
   const [universities, setUniversities] = useState<ICard[]>([]);
   useEffect(() => {
     async function fetchData() {
@@ -32,31 +30,27 @@ export default function App() {
       }
     }
     fetchData();
-  }, []);
-
-  // function handleChangeQuery(query: string) {
-  //   dispatch({
-  //     type: 'change',
-  //     query: query,
-  //   });
-  // }
+  }, [theme]);
 
   return (
     <>
       <ErrorBoundary>
-        {/* <QueryTextContext value={query}> */}
-        <Header universities={universities} setUniversities={setUniversities} />
-        <Main>
-          <h2>Universities</h2>
-          <div className="wrapper">
-            <CardList universities={universities} />
-          </div>
-          <Pagination
+        <ThemeContext value={theme}>
+          <Header
             universities={universities}
             setUniversities={setUniversities}
           />
-        </Main>
-        {/* </QueryTextContext> */}
+          <Main>
+            <h2>Universities</h2>
+            <div className="wrapper">
+              <CardList universities={universities} />
+            </div>
+            <Pagination
+              universities={universities}
+              setUniversities={setUniversities}
+            />
+          </Main>
+        </ThemeContext>
       </ErrorBoundary>
     </>
   );

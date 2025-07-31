@@ -2,8 +2,6 @@ import './style.css';
 import Button from '../Button/Button';
 import Search from '../Search/Search';
 import { handleSearchSubmit } from '../../utils/handleSearchSubmit';
-// import { useContext } from 'react';
-// import { QueryTextContext } from '../../context/context';
 import { useStore } from '../../store/store';
 
 interface ICard {
@@ -21,7 +19,6 @@ export default function Header({
   universities,
   setUniversities,
 }: IHeaderProps) {
-  // const value = useContext(QueryTextContext);
   const queryValue = useStore((state) => state.query);
   return (
     <header className="header">
