@@ -17,9 +17,9 @@ export default function FlyoutElement() {
       <div>
         <button onClick={clearCheckedCards}>Unselect all</button>
         <CSVLink
+          separater={';'}
           data={checkedCards}
           filename={`${checkedCards.length}_items.csv`}
-          separater={';'}
           headers={headers}
         >
           Download cvs
