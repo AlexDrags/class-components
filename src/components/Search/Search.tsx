@@ -1,3 +1,4 @@
+import './style.css';
 import { useContext } from 'react';
 import { QueryTextContext } from '../../context/context';
 

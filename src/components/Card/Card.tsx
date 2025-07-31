@@ -1,6 +1,5 @@
 import './style.css';
 import { Link } from 'react-router';
-// import { useRef } from 'react';
 
 interface ICardDecsription {
   name: string;
@@ -36,9 +35,7 @@ export default function Card({
         }}
       >
         <img src="/public/images.png" width={30} height={30} alt={name} />
-        {/* <p>{name}</p> */}
         <p>Country: {country}</p>
-        {/* <p>Web-page: {web_pages}</p> */}
       </Link>
     </li>
   );

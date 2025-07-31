@@ -1,3 +1,4 @@
+import './style.css';
 import Button from '../Button/Button';
 import Search from '../Search/Search';
 import { handleSearchSubmit } from '../../utils/handleSearchSubmit';
@@ -23,7 +24,7 @@ export default function Header({
 }: IHeaderProps) {
   const value = useContext(QueryTextContext);
   return (
-    <header>
+    <header className="header">
       <form
         action={() => {
           handleSearchSubmit(value, universities, setUniversities);

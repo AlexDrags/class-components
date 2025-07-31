@@ -1,3 +1,4 @@
+import './style.css';
 import {
   handlePaginationNext,
   handlePaginationPrev,
@@ -17,7 +18,7 @@ export default function Pagination({
   setUniversities,
 }: IPaginationProps) {
   return (
-    <>
+    <div className="pagination">
       <form
         action={() => {
           handlePaginationPrev(universities, setUniversities);
@@ -32,6 +33,6 @@ export default function Pagination({
       >
         <button type="submit">2</button>
       </form>
-    </>
+    </div>
   );
 }
