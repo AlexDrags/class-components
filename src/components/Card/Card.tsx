@@ -35,6 +35,7 @@ export default function Card({
           setDescription(cardRef);
         }}
       >
+        <img src="/public/images.png" width={30} height={30} alt={name} />
         {/* <p>{name}</p> */}
         <p>Country: {country}</p>
         {/* <p>Web-page: {web_pages}</p> */}
