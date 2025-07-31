@@ -1,22 +1,18 @@
 import './style.css';
-import { useContext } from 'react';
-import { QueryTextContext } from '../../context/context';
+import { useStore } from '../../store/store';
 
-interface ISearch {
-  onChange: (value: string) => void;
-}
-
-export default function Search({ onChange }: ISearch) {
-  const value = useContext(QueryTextContext);
+export default function Search() {
+  const queryValue = useStore((state) => state.query);
+  const changeQueryValue = useStore((state) => state.userInputQuery);
   return (
     <input
       type="text"
       name="search"
       id="search"
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
+      value={queryValue}
+      onChange={(e) => changeQueryValue(e.target.value)}
       placeholder="
-Please enter the full name of the country"
+Please enter country: example Kuwait"
     />
   );
 }

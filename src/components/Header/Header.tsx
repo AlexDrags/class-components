@@ -2,8 +2,9 @@ import './style.css';
 import Button from '../Button/Button';
 import Search from '../Search/Search';
 import { handleSearchSubmit } from '../../utils/handleSearchSubmit';
-import { useContext } from 'react';
-import { QueryTextContext } from '../../context/context';
+// import { useContext } from 'react';
+// import { QueryTextContext } from '../../context/context';
+import { useStore } from '../../store/store';
 
 interface ICard {
   name: string;
@@ -12,25 +13,24 @@ interface ICard {
 }
 
 interface IHeaderProps {
-  setValue: (prev: string) => void;
   universities: ICard[];
   setUniversities: (prev: ICard[]) => void;
 }
 
 export default function Header({
-  setValue,
   universities,
   setUniversities,
 }: IHeaderProps) {
-  const value = useContext(QueryTextContext);
+  // const value = useContext(QueryTextContext);
+  const queryValue = useStore((state) => state.query);
   return (
     <header className="header">
       <form
         action={() => {
-          handleSearchSubmit(value, universities, setUniversities);
+          handleSearchSubmit(queryValue, universities, setUniversities);
         }}
       >
-        <Search onChange={setValue} />
+        <Search />
         <Button typeButton={'submit'}>Search universiti</Button>
       </form>
     </header>

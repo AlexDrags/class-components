@@ -11,7 +11,8 @@ export async function handleSearchSubmit(
   universities: ICard[],
   setUniversities: (prev: ICard[]) => void
 ) {
-  console.log(universities);
+  localStorage.setItem('lastSearch', queryString);
+  console.log(queryString, universities);
   const universitiesData: ICard[] | [] = await searchData(queryString);
   setUniversities(universitiesData);
   console.log(universities);
