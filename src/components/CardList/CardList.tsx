@@ -44,7 +44,6 @@ export default function CardList({ universities }: IProps) {
                 name={name}
                 country={country}
                 web_pages={web_pages}
-                description={description}
                 setDescription={setDescription}
               />
             );

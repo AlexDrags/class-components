@@ -1,5 +1,4 @@
 import './style.css';
-import { Link } from 'react-router';
 import { useStoreStateCheckCards } from '../../store/store';
 
 interface ICardDecsription {
@@ -12,7 +11,6 @@ interface ICard {
   name: string;
   country: string;
   web_pages: string;
-  description: ICardDecsription | null;
   setDescription: (description: ICardDecsription) => void;
 }
 
@@ -28,7 +26,6 @@ export default function Card({
     web_pages: web_pages,
   };
   const checkCard = useStoreStateCheckCards((state) => state.addToCheckedCards);
-  // const checkedCards = useStoreStateCheckCards((state) => state.checkedCards);
   const removeFromCheckCards = useStoreStateCheckCards(
     (state) => state.removeFromCheckCards
   );
@@ -43,15 +40,15 @@ export default function Card({
           if (e.target.checked) checkCard(cardRef);
         }}
       />
-      <Link
-        to={'#'}
+      <a
+        href={'#'}
         onClick={() => {
           setDescription(cardRef);
         }}
       >
         <img src="/images.png" width={30} height={30} alt={name} />
         <p>Country: {country}</p>
-      </Link>
+      </a>
     </li>
   );
 }
