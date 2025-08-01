@@ -16,7 +16,7 @@ export default function Search() {
       name="search"
       id="search"
       value={queryValue}
-      onChange={(e) => changeQueryValue(e.target.value)}
+      onChange={(e) => changeQueryValue(e.target.value.trim())}
       placeholder="
 Enter country: example Kuwait or Jordan"
     />

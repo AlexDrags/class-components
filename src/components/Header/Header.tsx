@@ -23,8 +23,9 @@ export default function Header({
   return (
     <header className="header">
       <form
-        action={() => {
-          handleSearchSubmit(queryValue, universities, setUniversities);
+        role={'form'}
+        onSubmit={(evt) => {
+          handleSearchSubmit(evt, queryValue, universities, setUniversities);
         }}
       >
         <Search />
