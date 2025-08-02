@@ -1,11 +1,5 @@
 import './style.css';
-interface IDecsription {
-  description: {
-    name: string;
-    country: string;
-    web_pages: string;
-  };
-}
+import type { IDecsription } from '../../types/description';
 export default function Description({ description }: IDecsription) {
   return (
     <div className="description">

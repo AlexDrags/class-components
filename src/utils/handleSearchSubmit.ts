@@ -1,20 +1,16 @@
 import type { FormEvent } from 'react';
 import searchData from '../api/search';
-
-interface ICard {
-  name: string;
-  country: string;
-  web_pages: string;
-}
+import type { IUniversities, IUniversityCard } from '../types/cards';
 
 export async function handleSearchSubmit(
   evt: FormEvent,
   queryString: string,
-  universities: ICard[],
-  setUniversities: (prev: ICard[]) => void
+  universities: IUniversities,
+  setUniversities: (prev: IUniversityCard[]) => void
 ) {
   evt.preventDefault();
   localStorage.setItem('lastSearch', queryString);
-  const universitiesData: ICard[] | [] = await searchData(queryString);
+  const universitiesData: IUniversityCard[] | [] =
+    await searchData(queryString);
   setUniversities(universitiesData);
 }

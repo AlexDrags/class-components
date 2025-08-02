@@ -3,20 +3,12 @@ import {
   handlePaginationNext,
   handlePaginationPrev,
 } from '../../utils/handlePagination';
-interface ICard {
-  name: string;
-  country: string;
-  web_pages: string;
-}
-interface IPaginationProps {
-  universities: ICard[];
-  setUniversities: (prev: ICard[]) => void;
-}
+import type { ISetUniversities } from '../../types/cards';
 
 export default function Pagination({
   universities,
   setUniversities,
-}: IPaginationProps) {
+}: ISetUniversities) {
   return (
     <div className="pagination">
       <form

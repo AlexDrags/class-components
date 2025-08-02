@@ -1,25 +1,13 @@
 import './style.css';
+import type { ICardDecsription } from '../../types/cards';
 import { useStoreStateCheckCards } from '../../store/store';
-
-interface ICardDecsription {
-  name: string;
-  country: string;
-  web_pages: string;
-}
-
-interface ICard {
-  name: string;
-  country: string;
-  web_pages: string;
-  setDescription: (description: ICardDecsription) => void;
-}
 
 export default function Card({
   name,
   country,
   web_pages,
   setDescription,
-}: ICard) {
+}: ICardDecsription) {
   const cardRef = {
     name: name,
     country: country,

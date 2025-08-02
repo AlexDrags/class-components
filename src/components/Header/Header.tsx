@@ -1,24 +1,14 @@
 import './style.css';
+import type { ISetUniversities } from '../../types/cards';
 import Button from '../Button/Button';
 import Search from '../Search/Search';
 import { handleSearchSubmit } from '../../utils/handleSearchSubmit';
 import { useStore } from '../../store/store';
 
-interface ICard {
-  name: string;
-  country: string;
-  web_pages: string;
-}
-
-interface IHeaderProps {
-  universities: ICard[];
-  setUniversities: (prev: ICard[]) => void;
-}
-
 export default function Header({
   universities,
   setUniversities,
-}: IHeaderProps) {
+}: ISetUniversities) {
   const queryValue = useStore((state) => state.query);
   return (
     <header className="header">

@@ -4,51 +4,27 @@ import Description from '../Description/Description';
 import FlyoutElement from '../FlyoutElement/FlyoutElement';
 import { useState } from 'react';
 import { useStoreStateCheckCards } from '../../store/store';
+import type { IUniversities, IUniversityCard } from '../../types/cards';
 
-interface ICard {
-  name: string;
-  country: string;
-  web_pages: string;
-}
-
-interface ICardDecsription {
-  name: string;
-  country: string;
-  web_pages: string;
-}
-
-interface IProps {
-  universities: ICard[];
-}
-export default function CardList({ universities }: IProps) {
-  const [description, setDescription] = useState<ICardDecsription | null>(null);
+export default function CardList({ universities }: IUniversities) {
+  const [description, setDescription] = useState<IUniversityCard | null>(null);
   const checkedCards = useStoreStateCheckCards((state) => state.checkedCards);
   return universities.length <= 0 ? (
     <p>Not find universities.</p>
   ) : (
     <>
       <ul className="cardItem">
-        {universities.map(
-          ({
-            name,
-            country,
-            web_pages,
-          }: {
-            name: string;
-            country: string;
-            web_pages: string;
-          }) => {
-            return (
-              <Card
-                key={name}
-                name={name}
-                country={country}
-                web_pages={web_pages}
-                setDescription={setDescription}
-              />
-            );
-          }
-        )}
+        {universities.map(({ name, country, web_pages }: IUniversityCard) => {
+          return (
+            <Card
+              key={name}
+              name={name}
+              country={country}
+              web_pages={web_pages}
+              setDescription={setDescription}
+            />
+          );
+        })}
       </ul>
       {description !== null ? (
         <>

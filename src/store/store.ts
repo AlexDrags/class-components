@@ -1,23 +1,8 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
-
-interface IQueryState {
-  query: string;
-  userInputQuery: (userInput: string) => void;
-}
-interface ICardDecsription {
-  name: string;
-  country: string;
-  web_pages: string;
-}
-
-interface ICheckCardsState {
-  checkedCards: ICardDecsription[];
-  addToCheckedCards: (newCheckCard: ICardDecsription) => void;
-  removeFromCheckCards: (id: string) => void;
-  clearCheckedCards: () => void;
-}
+import type { IQueryState, ICheckCardsState } from '../types/store';
+import type { IUniversityCard } from '../types/cards';
 
 export const useStore = create<IQueryState>()(
   devtools(
@@ -32,14 +17,14 @@ export const useStoreStateCheckCards = create<ICheckCardsState>()(
   devtools(
     immer((set) => ({
       checkedCards: [],
-      addToCheckedCards: (newCheckCard: ICardDecsription) =>
+      addToCheckedCards: (newCheckCard: IUniversityCard) =>
         set((state) => {
           state.checkedCards.push(newCheckCard);
         }),
       removeFromCheckCards: (id: string) =>
         set((state) => {
           const filterCards = state.checkedCards.filter(
-            (item: ICardDecsription) => item.name !== id
+            (item: IUniversityCard) => item.name !== id
           );
           state.checkedCards = filterCards;
         }),

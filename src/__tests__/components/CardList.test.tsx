@@ -1,13 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import CardList from '../../components/CardList/CardList';
-// import '@testing-library/jest-dom/vitest';
-// import Card from '../../components/Card/Card';
-
-// interface ICard {
-//   name: string;
-//   country: string;
-//   web_pages: string;
-// }
+import '@testing-library/jest-dom/vitest';
 
 describe('CardList', () => {
   it('should render message when data array is empty', () => {

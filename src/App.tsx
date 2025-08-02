@@ -1,4 +1,5 @@
 import './App.css';
+import type { IUniversities } from './types/cards';
 import { useEffect, useState, useContext } from 'react';
 import { getDataPrev } from './api/getData';
 import Header from './components/Header/Header';
@@ -8,15 +9,10 @@ import Main from './components/Main/Main';
 import searchData from './api/search';
 import Pagination from './components/Pagination/Pagination';
 import { ThemeContext } from './context/context';
-interface ICard {
-  name: string;
-  country: string;
-  web_pages: string;
-}
 
 export default function App() {
   const theme = useContext(ThemeContext);
-  const [universities, setUniversities] = useState<ICard[]>([]);
+  const [universities, setUniversities] = useState<IUniversities>([]);
   useEffect(() => {
     async function fetchData() {
       if (!localStorage.getItem('lastSearch')) {
