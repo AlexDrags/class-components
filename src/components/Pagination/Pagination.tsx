@@ -20,14 +20,14 @@ export default function Pagination({
   return (
     <div className="pagination">
       <form
-        action={() => {
+        onSubmit={() => {
           handlePaginationPrev(universities, setUniversities);
         }}
       >
         <button type="submit">1</button>
       </form>
       <form
-        action={() => {
+        onSubmit={() => {
           handlePaginationNext(universities, setUniversities);
         }}
       >

@@ -34,21 +34,4 @@ async function getDataNext() {
   }
 }
 
-async function getError() {
-  try {
-    const response = await fetch(
-      'http://niversities.hipolabs.com/search?name=Middle&offset=2&limit=5',
-      {
-        method: 'GET',
-      }
-    );
-    if (response.status == 200) {
-      const data = await response.json();
-      return data;
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-export { getDataPrev, getDataNext, getError };
+export { getDataPrev, getDataNext };

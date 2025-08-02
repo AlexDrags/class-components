@@ -15,7 +15,6 @@ export default function Description({ description }: IDecsription) {
         <p>Country: {description.country}</p>
         <p>Web-page: {description.web_pages}</p>
       </div>
-      {/* <button onClick={() => setDescription(null)}>Close description</button> */}
     </div>
   );
 }
