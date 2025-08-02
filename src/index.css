@@ -27,8 +27,6 @@ a:hover {
   color: #747bff;
 }
 
-
-
 body {
   margin: 0;
   display: flex;
@@ -67,9 +65,9 @@ button:focus-visible {
   background-color: #242424;
 
   & a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
   }
 
   & a:hover {
@@ -78,9 +76,9 @@ button:focus-visible {
 
   & button {
     color: rgba(255, 255, 255, 0.87);
-    background-color: #1a1a1a; 
+    background-color: #1a1a1a;
   }
-} 
+}
 /* 
 @media (prefers-color-scheme: light) {
   :root {

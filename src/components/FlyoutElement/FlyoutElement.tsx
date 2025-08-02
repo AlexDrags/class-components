@@ -15,7 +15,9 @@ export default function FlyoutElement() {
     <div className="modal">
       <p>{`${checkedCards.length}`} items are selected</p>
       <div>
-        <button onClick={clearCheckedCards}>Unselect all</button>
+        <button type={'button'} onClick={clearCheckedCards}>
+          Unselect all
+        </button>
         <CSVLink
           separater={';'}
           data={checkedCards}
