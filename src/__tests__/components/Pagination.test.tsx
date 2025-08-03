@@ -4,7 +4,10 @@ import Pagination from '../../components/Pagination/Pagination';
 import * as handlePagination from '../../utils/handlePagination';
 
 describe('Pagination', () => {
-  it('it should render pagination', () => {
+  vi.mock('../../api/getData', () => ({
+    getData: vi.fn(() => Promise.resolve(10)),
+  }));
+  it('it should render pagination', async () => {
     const mockUniversities = [
       {
         name: 'name',
@@ -19,8 +22,7 @@ describe('Pagination', () => {
     ];
     const mockSetUniversities = vi.fn();
 
-    const mockHandlePrev = vi.spyOn(handlePagination, 'handlePaginationPrev');
-    const mockHandleNext = vi.spyOn(handlePagination, 'handlePaginationNext');
+    const mockHandle = vi.spyOn(handlePagination, 'handlePagination');
 
     render(
       <Pagination
@@ -28,7 +30,7 @@ describe('Pagination', () => {
         setUniversities={mockSetUniversities}
       />
     );
-    const buttons = screen.getAllByRole('button');
+    const buttons = await screen.findAllByRole('button');
     buttons.forEach((button) => {
       expect(button).toBeInTheDocument();
       expect(button.getAttribute('type'));
@@ -36,13 +38,17 @@ describe('Pagination', () => {
 
     if (buttons.length > 0) {
       fireEvent.submit(buttons[0]);
-      expect(mockHandlePrev).toHaveBeenCalledWith(
+      expect(mockHandle).toHaveBeenCalledWith(
+        '0',
+        '5',
         mockUniversities,
         mockSetUniversities
       );
       expect(buttons[0]).toHaveTextContent('1');
       fireEvent.submit(buttons[1]);
-      expect(mockHandleNext).toHaveBeenCalledWith(
+      expect(mockHandle).toHaveBeenCalledWith(
+        '4',
+        '5',
         mockUniversities,
         mockSetUniversities
       );

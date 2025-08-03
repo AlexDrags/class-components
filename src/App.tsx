@@ -1,7 +1,7 @@
 import './App.css';
 import type { IUniversities } from './types/cards';
 import { useEffect, useState, useContext } from 'react';
-import { getDataPrev } from './api/getData';
+import { getDataPage } from './api/getData';
 import Header from './components/Header/Header';
 import ErrorBoundary from './components/Error/Error';
 import CardList from './components/CardList/CardList';
@@ -16,7 +16,7 @@ export default function App() {
   useEffect(() => {
     async function fetchData() {
       if (!localStorage.getItem('lastSearch')) {
-        const response = await getDataPrev();
+        const response = await getDataPage();
         setUniversities(response);
       }
       if (localStorage.getItem('lastSearch')) {

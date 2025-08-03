@@ -1,18 +1,12 @@
-import { getDataNext, getDataPrev } from '../api/getData';
+import { getDataPage } from '../api/getData';
 import type { IUniversities } from '../types/cards';
 
-export async function handlePaginationPrev(
+export async function handlePagination(
+  offset = '0',
+  limit = '5',
   universities: IUniversities,
   setUniversities: (prev: IUniversities) => void
 ) {
-  const response = await getDataPrev();
-  setUniversities(response);
-}
-
-export async function handlePaginationNext(
-  universities: IUniversities,
-  setUniversities: (prev: IUniversities) => void
-) {
-  const response = await getDataNext();
+  const response = await getDataPage(offset, limit);
   setUniversities(response);
 }
