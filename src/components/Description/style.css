@@ -1,0 +1,20 @@
+.description {
+  align-self: flex-start;
+}
+
+.wrapper-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.wrapper-description p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
