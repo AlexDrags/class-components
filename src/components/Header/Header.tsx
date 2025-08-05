@@ -10,6 +10,7 @@ export default function Header({
   setUniversities,
 }: ISetUniversities) {
   const queryValue = useStore((state) => state.query);
+
   return (
     <header className="header">
       <form
