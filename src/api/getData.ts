@@ -8,7 +8,9 @@ async function getData() {
     );
     if (response.status == 200) {
       const data = await response.json();
-      return data.length;
+      console.log('fnGetData: ', data);
+
+      return data;
     } else {
       throw new Error('Test error');
     }

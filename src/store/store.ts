@@ -32,3 +32,25 @@ export const useStoreStateCheckCards = create<ICheckCardsState>()(
     }))
   )
 );
+
+interface ICountPageState {
+  countPages: number;
+  incrementCountPage: (n: number) => void;
+  decrementCountPage: (n: number) => void;
+}
+
+export const useStorePageCountCards = create<ICountPageState>()(
+  devtools(
+    immer((set) => ({
+      countPages: 0,
+      incrementCountPage: (n) =>
+        set((state) => {
+          state.countPages = n;
+        }),
+      decrementCountPage: (n) =>
+        set((state) => {
+          state.countPages = n;
+        }),
+    }))
+  )
+);

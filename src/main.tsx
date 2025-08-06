@@ -9,18 +9,8 @@ import NotFound from './pages/404.tsx';
 const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error('Root element not found');
 
-// import {
-//   useQuery,
-//   useMutation,
-//   QueryClient,
-//   QueryClientProvider,
-// } from '@tanstack/react-query';
-
-// const queryClient = new QueryClient();
-
 createRoot(rootElement).render(
   <StrictMode>
-    {/* <QueryClientProvider client={queryClient}> */}
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -30,6 +20,5 @@ createRoot(rootElement).render(
         </Route>
       </Routes>
     </BrowserRouter>
-    {/* </QueryClientProvider> */}
   </StrictMode>
 );

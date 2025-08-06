@@ -9,21 +9,9 @@ import Main from './components/Main/Main';
 import searchData from './api/search';
 import Pagination from './components/Pagination/Pagination';
 import { ThemeContext } from './context/context';
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query';
-const queryClient = new QueryClient();
 export default function App() {
   const theme = useContext(ThemeContext);
   const [universities, setUniversities] = useState<IUniversities>([]);
-  // const { isPending, isError, data, error } = useQuery({
-  //   queryKey: ['universities'],
-  //   queryFn: getDataPage,
-  // });
   useEffect(() => {
     async function fetchData() {
       if (!localStorage.getItem('lastSearch')) {
@@ -50,9 +38,7 @@ export default function App() {
           <Main>
             <h2>Universities</h2>
             <div className="wrapper">
-              <QueryClientProvider client={queryClient}>
-                <CardList universities={universities} />
-              </QueryClientProvider>
+              <CardList universities={universities} />
             </div>
             <Pagination
               universities={universities}

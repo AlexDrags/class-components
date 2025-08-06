@@ -2,6 +2,9 @@ import './style.css';
 import { useEffect, useReducer } from 'react';
 import themeReducer from '../../reducers/themeReducer';
 import { Outlet, Link } from 'react-router';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 export default function Layout() {
   const [theme, dispatch] = useReducer(themeReducer, 'light');
@@ -35,7 +38,9 @@ export default function Layout() {
         <Link to={'/'}>Home</Link>
         <Link to={'/about'}>About</Link>
       </nav>
-      <Outlet />
+      <QueryClientProvider client={queryClient}>
+        <Outlet />
+      </QueryClientProvider>
       <footer>
         <a
           href="https://github.com/AlexDrags"
