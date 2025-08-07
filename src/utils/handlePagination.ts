@@ -8,5 +8,5 @@ export async function handlePagination(
   setUniversities: (prev: IUniversities) => void
 ) {
   const response = await getDataPage(offset, limit);
-  setUniversities(response);
+  // setUniversities(response);
 }

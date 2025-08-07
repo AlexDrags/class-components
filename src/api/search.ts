@@ -10,6 +10,7 @@ export default async function searchData(queryString: string) {
     );
     if (response.status == 200) {
       const data = await response.json();
+      console.log('search data', data);
       return data;
     } else {
       throw new Error('Error response');

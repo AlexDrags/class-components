@@ -8,16 +8,16 @@ export default function Search() {
   const queryValue = useStore((state) => state.query);
   const changeQueryValue = useStore((state) => state.userInputQuery);
   const { isPending, isError, data, error } = useQuery({
-    queryKey: ['universities'],
+    queryKey: ['universities', queryValue],
     queryFn: () => searchData(queryValue),
   });
 
   useEffect(() => {
-    console.log(queryValue);
+    console.log('queryValue', queryValue);
     const localStore = localStorage.getItem('lastSearch');
     if (localStore) changeQueryValue(localStore);
     if (!localStore) changeQueryValue('');
-  }, [queryValue, changeQueryValue, isPending, data]);
+  }, []);
   if (isPending) {
     return <h3>Loading...</h3>;
   }
@@ -31,9 +31,9 @@ export default function Search() {
       id="search"
       value={queryValue}
       onChange={(e) => changeQueryValue(e.target.value.trim())}
-      // onChange={(e) => changeQueryValue(e.target.value.trim())}
       placeholder="
 Enter country: example Kuwait or Jordan"
+      autoFocus
     />
   );
 }
