@@ -38,12 +38,9 @@ export default function App() {
           <Main>
             <h2>Universities</h2>
             <div className="wrapper">
-              <CardList universities={universities} />
+              <CardList />
             </div>
-            <Pagination
-              universities={universities}
-              setUniversities={setUniversities}
-            />
+            <Pagination />
           </Main>
         </ThemeContext>
       </ErrorBoundary>

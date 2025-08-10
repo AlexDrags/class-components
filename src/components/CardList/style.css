@@ -10,3 +10,14 @@ ul {
   padding-right: 10px;
   border-right: 1px solid black;
 }
+
+.result-search {
+  grid-column-start: 1;
+  grid-column-end: -1;
+
+  & ul {
+    border-right: none;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+  }
+}

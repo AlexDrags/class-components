@@ -10,10 +10,10 @@ import {
   useStorePageCountCards,
   useStore,
 } from '../../store/store';
-import type { IUniversities, IUniversityCard } from '../../types/cards';
+import type { IUniversityCard } from '../../types/cards';
 import { useQuery } from '@tanstack/react-query';
 
-export default function CardList({ universities }: IUniversities) {
+export default function CardList() {
   const countPages = useStorePageCountCards((state) => state.countPages);
   const queryValue = useStore((state) => state.query);
   const countCardsPerPage = 5;
@@ -29,44 +29,8 @@ export default function CardList({ universities }: IUniversities) {
   const checkedCards = useStoreStateCheckCards((state) => state.checkedCards);
   useEffect(() => {
     console.log(data);
-  }, [
-    countPages,
-    isPending,
-    data,
-    queryValue,
-    // resultSearch.isPending,
-    // resultSearch.data,
-  ]);
-  const ResultSearchData = () => {
-    if (data) {
-      return data.map(({ name, country, web_pages }: IUniversityCard) => {
-        return (
-          <Card
-            key={name}
-            name={name}
-            country={country}
-            web_pages={web_pages}
-            setDescription={setDescription}
-          />
-        );
-      });
-    }
-    if (resultSearch.data) {
-      return resultSearch.data.map(
-        ({ name, country, web_pages }: IUniversityCard) => {
-          return (
-            <Card
-              key={name}
-              name={name}
-              country={country}
-              web_pages={web_pages}
-              setDescription={setDescription}
-            />
-          );
-        }
-      );
-    }
-  };
+  }, [countPages, isPending, data, queryValue, resultSearch.data]);
+  console.log('queryValue', queryValue.length);
   if (isPending) {
     return <h3>Loading...</h3>;
   }
@@ -75,10 +39,19 @@ export default function CardList({ universities }: IUniversities) {
   }
   return (
     <>
-      <ul className="cardItem">
-        <ResultSearchData />
-        {/* {resultSearch.data
-          ? resultSearch.data.map(
+      {resultSearch.isPending ? (
+        <h3>Loading...</h3>
+      ) : resultSearch.isError ? (
+        <h3>Error: {error.message}</h3>
+      ) : (
+        ''
+      )}
+      {queryValue.length > 0 && resultSearch.data ? (
+        <div className="result-search">
+          <h4>Result searching:</h4>
+
+          <ul className="cardItem">
+            {resultSearch.data.map(
               ({ name, country, web_pages }: IUniversityCard) => {
                 return (
                   <Card
@@ -90,18 +63,24 @@ export default function CardList({ universities }: IUniversities) {
                   />
                 );
               }
-            )
-          : data.map(({ name, country, web_pages }: IUniversityCard) => {
-              return (
-                <Card
-                  key={name}
-                  name={name}
-                  country={country}
-                  web_pages={web_pages}
-                  setDescription={setDescription}
-                />
-              );
-            })} */}
+            )}
+          </ul>
+        </div>
+      ) : (
+        ''
+      )}
+      <ul className="cardItem">
+        {data.map(({ name, country, web_pages }: IUniversityCard) => {
+          return (
+            <Card
+              key={name}
+              name={name}
+              country={country}
+              web_pages={web_pages}
+              setDescription={setDescription}
+            />
+          );
+        })}
       </ul>
       {description !== null ? (
         <>
