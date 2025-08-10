@@ -8,7 +8,6 @@ async function getData() {
     );
     if (response.status == 200) {
       const data = await response.json();
-      console.log('fnGetData: ', data);
 
       return data;
     } else {

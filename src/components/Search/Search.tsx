@@ -17,7 +17,10 @@ export default function Search() {
       name="search"
       id="search"
       value={queryValue}
-      onChange={(e) => changeQueryValue(e.target.value)}
+      onChange={(e) => {
+        localStorage.setItem('lastSearch', e.target.value);
+        changeQueryValue(e.target.value);
+      }}
       placeholder="
 Enter country: example Kuwait or Jordan"
       autoFocus

@@ -27,10 +27,13 @@ export default function CardList() {
   });
   const [description, setDescription] = useState<IUniversityCard | null>(null);
   const checkedCards = useStoreStateCheckCards((state) => state.checkedCards);
-  useEffect(() => {
-    console.log(data);
-  }, [countPages, isPending, data, queryValue, resultSearch.data]);
-  console.log('queryValue', queryValue.length);
+  useEffect(() => {}, [
+    countPages,
+    isPending,
+    data,
+    queryValue,
+    resultSearch.data,
+  ]);
   if (isPending) {
     return <h3>Loading...</h3>;
   }

@@ -11,3 +11,9 @@ export interface ICheckCardsState {
   removeFromCheckCards: (id: string) => void;
   clearCheckedCards: () => void;
 }
+
+export interface ICountPageState {
+  countPages: number;
+  incrementCountPage: (n: number) => void;
+  decrementCountPage: (n: number) => void;
+}

@@ -1,7 +1,11 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
-import type { IQueryState, ICheckCardsState } from '../types/store';
+import type {
+  IQueryState,
+  ICheckCardsState,
+  ICountPageState,
+} from '../types/store';
 import type { IUniversityCard } from '../types/cards';
 
 export const useStore = create<IQueryState>()(
@@ -32,12 +36,6 @@ export const useStoreStateCheckCards = create<ICheckCardsState>()(
     }))
   )
 );
-
-interface ICountPageState {
-  countPages: number;
-  incrementCountPage: (n: number) => void;
-  decrementCountPage: (n: number) => void;
-}
 
 export const useStorePageCountCards = create<ICountPageState>()(
   devtools(
