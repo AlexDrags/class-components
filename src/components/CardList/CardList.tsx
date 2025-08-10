@@ -34,6 +34,9 @@ export default function CardList() {
     queryValue,
     resultSearch.data,
   ]);
+  if (!data) {
+    return <h3>Not find universities</h3>;
+  }
   if (isPending) {
     return <h3>Loading...</h3>;
   }

@@ -18,8 +18,11 @@ export default function Search() {
       id="search"
       value={queryValue}
       onChange={(e) => {
-        localStorage.setItem('lastSearch', e.target.value);
-        changeQueryValue(e.target.value);
+        localStorage.setItem(
+          'lastSearch',
+          e.target.value.trimRight().trimLeft()
+        );
+        changeQueryValue(e.target.value.trimRight().trimLeft());
       }}
       placeholder="
 Enter country: example Kuwait or Jordan"
