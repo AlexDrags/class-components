@@ -1,4 +1,5 @@
 import './style.css';
+import Image from 'next/image';
 import type { ICardDecsription } from '../../types/cards';
 import { useStoreStateCheckCards } from '../../store/store';
 
@@ -34,7 +35,7 @@ export default function Card({
           setDescription(cardRef);
         }}
       >
-        <img src="/images.png" width={30} height={30} alt={name} />
+        <Image src={`/images.png`} alt={name} width={64} height={64} />
         <p>Country: {country}</p>
       </a>
     </li>

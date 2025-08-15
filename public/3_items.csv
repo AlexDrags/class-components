@@ -1,4 +1,0 @@
-name;climate;url;terrain;population;gravity
-"Bespin";"temperate";"https://swapi.py4e.com/api/planets/6/";"gas giant";"6000000";"1.5 (surface), 1 standard (Cloud City)"
-"Endor";"temperate";"https://swapi.py4e.com/api/planets/7/";"forests, mountains, lakes";"30000000";"0.85 standard"
-"Alderaan";"temperate";"https://swapi.py4e.com/api/planets/2/";"grasslands, mountains";"2000000000";"1 standard"
