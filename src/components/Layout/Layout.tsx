@@ -1,10 +1,8 @@
 import './style.css';
+import Link from 'next/link';
+import App from '../../App';
 import { useEffect, useReducer } from 'react';
 import themeReducer from '../../reducers/themeReducer';
-import { Outlet, Link } from 'react-router';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-const queryClient = new QueryClient();
 
 export default function Layout() {
   const [theme, dispatch] = useReducer(themeReducer, 'light');
@@ -35,12 +33,10 @@ export default function Layout() {
       </label>
 
       <nav className="navigation">
-        <Link to={'/'}>Home</Link>
-        <Link to={'/about'}>About</Link>
+        <Link href="/">Home</Link>
+        <Link href="/about">About</Link>
       </nav>
-      <QueryClientProvider client={queryClient}>
-        <Outlet />
-      </QueryClientProvider>
+      <App />
       <footer>
         <a
           href="https://github.com/AlexDrags"

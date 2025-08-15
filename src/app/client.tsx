@@ -2,7 +2,9 @@
 
 import React from 'react';
 import dynamic from 'next/dynamic';
-const App = dynamic(() => import('../../App'), { ssr: false });
+const App = dynamic(() => import('../Components/Layout/Layout'), {
+  ssr: false,
+});
 
 export function ClientOnly() {
   return <App />;
