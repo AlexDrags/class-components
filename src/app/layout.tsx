@@ -1,7 +1,8 @@
-// import { ClientOnly } from './client';
+import '../index.css';
 import QueryProvider from './providers';
 import NavigationPanel from '../components/NavigationPanel/NavigationPanel';
 import ThemeToggle from '../components/themeToogle/ThemeToggle';
+
 export const metadata: Metadata = {
   title: 'Vite + React + TS + Next',
   description: 'My App is a...',
@@ -19,7 +20,10 @@ export default function RootLayout({
           <ThemeToggle />
           <NavigationPanel />
         </section>
-        <QueryProvider>{children}</QueryProvider>
+
+        <QueryProvider>
+          <main>{children}</main>
+        </QueryProvider>
         <footer>
           <a
             href="https://github.com/AlexDrags"

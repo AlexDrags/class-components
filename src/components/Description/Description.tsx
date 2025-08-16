@@ -1,13 +1,17 @@
 import './style.css';
-import type { IDecsription } from '../../types/description';
-export default function Description({ description }: IDecsription) {
+import type { IUniversityCard } from '../../types/description';
+export default function Description({
+  name,
+  country,
+  web_pages,
+}: IUniversityCard) {
   return (
     <div className="description">
       <h2>Description:</h2>
       <div className="wrapper-description">
-        <p>Name of universities: {description.name}</p>
-        <p>Country: {description.country}</p>
-        <p>Web-page: {description.web_pages}</p>
+        <p>Name of universities: {name}</p>
+        <p>Country: {country}</p>
+        <p>Web-page: {web_pages}</p>
       </div>
     </div>
   );

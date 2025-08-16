@@ -27,6 +27,11 @@ a:hover {
   color: #747bff;
 }
 
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
 body {
   margin: 0;
   display: flex;
@@ -34,6 +39,18 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+footer {
+  text-align: center;
 }
 
 .top-section {
@@ -59,9 +76,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
