@@ -19,7 +19,7 @@ async function getData() {
   }
 }
 
-async function getDataPage(offset = '0', limit = '5') {
+async function getDataPage(offset = '0', limit = '1') {
   try {
     const response = await fetch(
       `http://universities.hipolabs.com/search?name=Middle&offset=${offset}&limit=${limit}`,

@@ -20,6 +20,16 @@ export default function RootLayout({
           <NavigationPanel />
         </section>
         <QueryProvider>{children}</QueryProvider>
+        <footer>
+          <a
+            href="https://github.com/AlexDrags"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub author
+          </a>
+          <p>2025.</p>
+        </footer>
       </body>
     </html>
   );
