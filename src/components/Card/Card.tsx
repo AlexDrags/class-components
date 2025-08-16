@@ -30,7 +30,8 @@ export default function Card({ name, country, web_pages }: IUniversityCard) {
       />
       <a
         href={'#'}
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
           setShowDescription(true);
         }}
       >

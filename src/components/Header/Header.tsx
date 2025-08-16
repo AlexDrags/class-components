@@ -14,9 +14,7 @@ export default function Header() {
     queryFn: () => searchData(queryValue),
   });
 
-  useEffect(() => {
-    console.log(queryValue, resultSearch.data);
-  }, [queryValue, resultSearch.data]);
+  useEffect(() => {}, [queryValue, resultSearch.data]);
 
   return (
     <header className="header">

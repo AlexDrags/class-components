@@ -1,51 +1,62 @@
+'use client';
 import './style.css';
-import { getDataPage } from '../../api/getData';
-import searchData from '../../api/search';
+// import { getDataPage } from '../../api/getData';
+// import searchData from '../../api/search';
 import Card from '../Card/Card';
-import Description from '../Description/Description';
+// import Description from '../Description/Description';
 import FlyoutElement from '../FlyoutElement/FlyoutElement';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import {
   useStoreStateCheckCards,
-  useStorePageCountCards,
-  useStore,
+  //   useStorePageCountCards,
+  //   useStore,
 } from '../../store/store';
 import type { IUniversityCard } from '../../types/cards';
-import { useQuery } from '@tanstack/react-query';
+// import { useQuery } from '@tanstack/react-query';
 
-export default function CardList() {
-  const countPages = useStorePageCountCards((state) => state.countPages);
-  const queryValue = useStore((state) => state.query);
-  const countCardsPerPage = 5;
-  const { isPending, isError, data, error } = useQuery({
-    queryKey: ['universities', countPages, countCardsPerPage],
-    queryFn: () => getDataPage(`${countPages}`, `${countCardsPerPage}`),
-  });
-  const resultSearch = useQuery({
-    queryKey: ['universities', queryValue],
-    queryFn: () => searchData(queryValue),
-  });
-  const [description, setDescription] = useState<IUniversityCard | null>(null);
+export default function CardList({ result }: { result: IUniversityCard[] }) {
+  // const countPages = useStorePageCountCards((state) => state.countPages);
+  // const queryValue = useStore((state) => state.query);
+  // const countCardsPerPage = 5;
+  // const { isPending, isError, data, error } = useQuery({
+  //   queryKey: ['universities', countPages, countCardsPerPage],
+  //   queryFn: () => getDataPage(`${countPages}`, `${countCardsPerPage}`),
+  // });
+  // const resultSearch = useQuery({
+  //   queryKey: ['universities', queryValue],
+  //   queryFn: () => searchData(queryValue),
+  // });
+  // const [description, setDescription] = useState<IUniversityCard | null>(null);
   const checkedCards = useStoreStateCheckCards((state) => state.checkedCards);
-  useEffect(() => {}, [
-    countPages,
-    isPending,
-    data,
-    queryValue,
-    resultSearch.data,
-  ]);
-  if (!data) {
-    return <h3>Not find universities</h3>;
-  }
-  if (isPending) {
-    return <h3>Loading...</h3>;
-  }
-  if (isError) {
-    return <h3>Error: {error.message}</h3>;
-  }
+  // useEffect(() => {}, [
+  //   countPages,
+  //   isPending,
+  //   data,
+  //   queryValue,
+  //   resultSearch.data,
+  // ]);
+  // if (!data) {
+  //   return <h3>Not find universities</h3>;
+  // }
+  // if (isPending) {
+  //   return <h3>Loading...</h3>;
+  // }
+  // if (isError) {
+  //   return <h3>Error: {error.message}</h3>;
+  // }
   return (
     <>
-      {resultSearch.isPending ? (
+      <ul className="card-item">
+        {result.map(({ name, country, web_pages }: IUniversityCard) => (
+          <Card
+            key={name}
+            name={name}
+            country={country}
+            web_pages={web_pages}
+          />
+        ))}
+      </ul>
+      {/* {resultSearch.isPending ? (
         <h3>Loading...</h3>
       ) : resultSearch.isError ? (
         <h3>Error: {error.message}</h3>
@@ -97,7 +108,7 @@ export default function CardList() {
         </>
       ) : (
         ''
-      )}{' '}
+      )}{' '} */}
       {checkedCards.length > 0 ? <FlyoutElement /> : ''}
     </>
   );
