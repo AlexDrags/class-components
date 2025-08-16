@@ -1,3 +1,4 @@
+'use client';
 import './style.css';
 import { handlePagination } from '../../utils/handlePagination';
 import { getData, getDataPage } from '../../api/getData';
@@ -43,6 +44,7 @@ export default function Pagination() {
                 e.preventDefault();
                 const indx = index;
                 decrementCountPage(indx);
+                console.log(`${indx}`, `${countCardsPerPage}`);
                 handlePagination(`${index}`, `${countCardsPerPage}`);
               }}
             >
@@ -54,8 +56,9 @@ export default function Pagination() {
               onSubmit={(e) => {
                 e.preventDefault();
                 incrementCountPage(countCardsPerPage - 1);
+                console.log(`${countCardsPerPage - 1}`, `${countCardsPerPage}`);
                 handlePagination(
-                  `${countCardsPerPage - 1}`,
+                  `${countCardsPerPage}`,
                   `${countCardsPerPage}`
                 );
               }}

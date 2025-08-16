@@ -1,4 +1,4 @@
-export default function AboutPage() {
+export default function Page() {
   return (
     <>
       <h1>About author:</h1>

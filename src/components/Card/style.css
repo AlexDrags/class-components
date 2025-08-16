@@ -10,6 +10,11 @@ li {
     display: block;
   }
 
+  & a img {
+    display: block;
+    margin: 0 auto;
+  }
+
   & p {
     border: none;
     margin: 0;

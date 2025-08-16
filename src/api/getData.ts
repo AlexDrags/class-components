@@ -1,3 +1,4 @@
+'use server';
 async function getData() {
   try {
     const response = await fetch(
@@ -8,7 +9,7 @@ async function getData() {
     );
     if (response.status == 200) {
       const data = await response.json();
-
+      console.log(data);
       return data;
     } else {
       throw new Error('Test error');

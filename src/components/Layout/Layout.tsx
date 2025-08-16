@@ -36,6 +36,7 @@ export default function Layout() {
         <Link href="/">Home</Link>
         <Link href="/about">About</Link>
       </nav>
+      {/* <QueryClientProvider client={queryClient}> */}
       <App />
       <footer>
         <a
