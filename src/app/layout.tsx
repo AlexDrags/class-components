@@ -1,5 +1,4 @@
 import '../index.css';
-import QueryProvider from './providers';
 import NavigationPanel from '../components/NavigationPanel/NavigationPanel';
 import ThemeToggle from '../components/themeToogle/ThemeToggle';
 
@@ -20,10 +19,7 @@ export default function RootLayout({
           <ThemeToggle />
           <NavigationPanel />
         </section>
-
-        <QueryProvider>
-          <main>{children}</main>
-        </QueryProvider>
+        <main>{children}</main>
         <footer>
           <a
             href="https://github.com/AlexDrags"

@@ -1,3 +1,4 @@
+'use client';
 import './style.css';
 import { useStore } from '../../store/store';
 import { useEffect } from 'react';
@@ -24,8 +25,7 @@ export default function Search() {
         );
         changeQueryValue(e.target.value.trimRight().trimLeft());
       }}
-      placeholder="
-Enter country: example Kuwait or Jordan"
+      placeholder="example: Kuwait or Jordan"
       autoFocus
     />
   );
