@@ -12,5 +12,13 @@
   },
   "Theme": {
     "title": "Цвет темы"
+  },
+  "Search": {
+    "result": "Результат поиска",
+    "error": "Ошибка поиска",
+    "pending": "Загрузка"
+  },
+  "Universities": {
+    "universities": "Университеты"
   }
 }

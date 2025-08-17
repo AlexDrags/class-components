@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { expect, it, describe } from 'vitest';
 import Button from '../../components/Button/Button';

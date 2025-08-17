@@ -12,5 +12,13 @@
   },
   "Theme": {
     "title": "Current theme color"
+  },
+  "Search": {
+    "result": "Result searching",
+    "error": "Error",
+    "pending": "Loading"
+  },
+  "Universities": {
+    "universities": "Universities"
   }
 }

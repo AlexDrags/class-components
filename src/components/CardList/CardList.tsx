@@ -1,15 +1,17 @@
 'use client';
 import './style.css';
+import { useTranslations } from 'next-intl';
 import Card from '../Card/Card';
 import FlyoutElement from '../FlyoutElement/FlyoutElement';
 import { useStoreStateCheckCards } from '../../store/store';
 import type { IUniversityCard } from '../../types/cards';
 
 export default function CardList({ result }: { result: IUniversityCard[] }) {
+  const t = useTranslations('Universities');
   const checkedCards = useStoreStateCheckCards((state) => state.checkedCards);
-
   return (
     <>
+      <h3>{t('universities')}:</h3>
       <ul className="card-item">
         {result.map(({ name, country, web_pages }: IUniversityCard) => (
           <Card

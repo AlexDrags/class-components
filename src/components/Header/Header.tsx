@@ -1,5 +1,6 @@
 'use client';
 import './style.css';
+import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useStore } from '../../store/store';
@@ -8,6 +9,7 @@ import Card from '../Card/Card';
 import searchData from '../../api/search';
 
 export default function Header() {
+  const t = useTranslations('Search');
   const queryValue = useStore((state) => state.query);
   const resultSearch = useQuery({
     queryKey: ['universities', queryValue],
@@ -22,15 +24,17 @@ export default function Header() {
         <Search />
       </div>
       {resultSearch.isPending ? (
-        <h3>Loading...</h3>
+        <h3>{t('pending')}...</h3>
       ) : resultSearch.isError ? (
-        <h3>Error: {resultSearch.error.message}</h3>
+        <h3>
+          {t('error')}: {resultSearch.error.message}
+        </h3>
       ) : (
         ''
       )}
       {queryValue.length > 0 && resultSearch.data ? (
         <div className="result-search">
-          <h4>Result searching:</h4>
+          <h4>{t('result')}:</h4>
 
           <ul className="cardItem">
             {resultSearch.data.map(

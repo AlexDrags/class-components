@@ -30,7 +30,9 @@ export default async function LocaleLayout({
             <NavigationPanel />
           </NextIntlClientProvider>
         </section>
-        <main>{children}</main>
+        <main>
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        </main>
         <footer>
           <a
             href="https://github.com/AlexDrags"
