@@ -1,8 +1,10 @@
 {
   "files": [],
-  "references": [{
-    "path": "./tsconfig.app.json",
-    }],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ],
   "compilerOptions": {
     "target": "ES2017",
     "lib": [
@@ -29,11 +31,13 @@
     "strictNullChecks": true
   },
   "include": [
-    "next-env.d.ts",
-    "./dist/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/app/about"  ],
+    "**/*.tsx",
+    "./dist/types/**/*.ts",
+    "next-env.d.ts",
+    "src/app/about",
+    ".next/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

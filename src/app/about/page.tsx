@@ -1,7 +1,9 @@
+import { useTranslations } from 'next-intl';
 export default function Page() {
+  const t = useTranslations('AboutPage');
   return (
     <>
-      <h1>About author:</h1>
+      <h1>{t('title')}</h1>
       <p>
         Front-end developer with 2 years of hands-on development experience.
         Passionate about creating clean, efficient, and user-friendly

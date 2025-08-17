@@ -1,4 +1,6 @@
 import '../index.css';
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale } from 'next-intl/server';
 import NavigationPanel from '../components/NavigationPanel/NavigationPanel';
 import ThemeToggle from '../components/themeToogle/ThemeToggle';
 
@@ -7,19 +9,22 @@ export const metadata: Metadata = {
   description: 'My App is a...',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getLocale();
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body>
         <section className="top-section">
           <ThemeToggle />
           <NavigationPanel />
         </section>
-        <main>{children}</main>
+        <main>
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        </main>
         <footer>
           <a
             href="https://github.com/AlexDrags"
