@@ -1,0 +1,23 @@
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 0;
+  padding-right: 10px;
+  border-right: 1px solid black;
+}
+
+.result-search {
+  grid-column-start: 1;
+  grid-column-end: -1;
+
+  & ul {
+    border-right: none;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+  }
+}
