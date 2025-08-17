@@ -1,16 +1,12 @@
 import './style.css';
-import { CSVLink } from 'react-csv';
 import { useStoreStateCheckCards } from '../../store/store';
+import downloadCvs from '../../api/downloadCvs';
 export default function FlyoutElement() {
   const clearCheckedCards = useStoreStateCheckCards(
     (state) => state.clearCheckedCards
   );
   const checkedCards = useStoreStateCheckCards((state) => state.checkedCards);
-  const headers = [
-    { label: 'Name of universities', key: 'name' },
-    { label: 'Country', key: 'country' },
-    { label: 'Web-page', key: 'web_pages' },
-  ];
+  console.log(checkedCards);
   return (
     <div className="modal">
       <p>{`${checkedCards.length}`} items are selected</p>
@@ -18,15 +14,21 @@ export default function FlyoutElement() {
         <button type={'button'} onClick={clearCheckedCards}>
           Unselect all
         </button>
-        <CSVLink
-          separater={';'}
-          data={checkedCards}
-          filename={`${checkedCards.length}_items.csv`}
-          headers={headers}
+        <button
+          onClick={async () => {
+            const payload = await downloadCvs(checkedCards);
+            const blob = new Blob([payload], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${checkedCards.length}_items`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+          }}
         >
           Download cvs
-        </CSVLink>
-        ;
+        </button>
       </div>
     </div>
   );
