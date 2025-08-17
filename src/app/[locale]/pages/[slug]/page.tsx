@@ -13,7 +13,7 @@ export default async function Page({
 }) {
   const { slug } = await params;
   const data = await getData();
-  const cardList = await getDataPage(`${slug - 1}`, '1');
+  const cardList = await getDataPage(`${Number(slug) - 1}`, '1');
 
   if (!cardList.length) {
     notFound();

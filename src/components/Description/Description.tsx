@@ -1,5 +1,5 @@
 import './style.css';
-import type { IUniversityCard } from '../../types/description';
+import type { IUniversityCard } from '../../types/cards';
 export default function Description({
   name,
   country,
