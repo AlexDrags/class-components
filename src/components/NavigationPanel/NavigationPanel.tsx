@@ -1,11 +1,17 @@
 import './style.css';
-import Link from 'next/link';
+import LocaleSwitcher from '../LocaleSwitcher/LocaleSwitcher';
+import { useTranslations } from 'next-intl';
+import { Link } from '../../i18n/navigation';
 
 export default function NavigationPanel() {
+  const t = useTranslations('HomePage');
   return (
-    <nav className="navigation">
-      <Link href="/">Home</Link>
-      <Link href="/about">About</Link>
-    </nav>
+    <>
+      <LocaleSwitcher />
+      <nav className="navigation">
+        <Link href="/">{t('title')}</Link>
+        <Link href="/about">{t('about')}</Link>
+      </nav>
+    </>
   );
 }

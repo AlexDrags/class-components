@@ -1,10 +1,10 @@
-import '../../../index.css';
+import '../../../../index.css';
 import QueryProvider from '../../providers';
 import { notFound } from 'next/navigation';
-import { getDataPage, getData } from '../../../api/getData';
-import Header from '../../../components/Header/Header';
-import Pagination from '../../../components/Pagination/Pagination';
-import CardList from '../../../components/CardList/CardList';
+import { getDataPage, getData } from '../../../../api/getData';
+import Header from '../../../../components/Header/Header';
+import Pagination from '../../../../components/Pagination/Pagination';
+import CardList from '../../../../components/CardList/CardList';
 
 export default async function Page({
   params,

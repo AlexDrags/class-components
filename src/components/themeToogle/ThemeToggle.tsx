@@ -1,10 +1,11 @@
 'use client';
+import { useTranslations } from 'next-intl';
 import { useEffect, useReducer } from 'react';
 import themeReducer from '../../reducers/themeReducer';
 
 export default function ThemeToggle() {
+  const t = useTranslations('Theme');
   const [theme, dispatch] = useReducer(themeReducer, 'light');
-
   function handleChangeThemeColor(themeColor: string) {
     dispatch({
       type: 'changeTheme',
@@ -23,7 +24,7 @@ export default function ThemeToggle() {
 
   return (
     <label htmlFor="theme">
-      Current theme color: {`${theme}`}
+      {t('title')}: {`${theme}`}
       <input
         type="checkbox"
         name="theme"

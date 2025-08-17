@@ -33,6 +33,6 @@
     /* Plugins */
     "plugins": [{ "name": "next" }],
   },
-  "include": ["src/**/*", "./dist/types/**/*.ts", "./next-env.d.ts", "src/app/layout.tsx"],
+  "include": ["src/**/*", "./dist/types/**/*.ts", "./next-env.d.ts", "src/app/[locale]/layout.tsx"],
   "exclude": ["./node_modules"]
 }
