@@ -5,11 +5,6 @@ import { routing } from '../../i18n/routing';
 import NavigationPanel from '../../components/NavigationPanel/NavigationPanel';
 import ThemeToggle from '../../components/themeToogle/ThemeToggle';
 
-export const metadata: Metadata = {
-  title: 'Vite + React + TS + Next',
-  description: 'My App is a...',
-};
-
 export default async function LocaleLayout({
   children,
   params,
@@ -23,6 +18,9 @@ export default async function LocaleLayout({
   }
   return (
     <html lang={locale}>
+      <head>
+        <title>Vite + React + TS + Next</title>
+      </head>
       <body>
         <section className="top-section">
           <NextIntlClientProvider>
