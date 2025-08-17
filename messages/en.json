@@ -20,5 +20,9 @@
   },
   "Universities": {
     "universities": "Universities"
+  },
+  "NotFound": {
+    "title": "Not Found",
+    "description":"Could not find requested resource"
   }
 }

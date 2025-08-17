@@ -20,5 +20,9 @@
   },
   "Universities": {
     "universities": "Университеты"
+  },
+  "NotFound": {
+    "title": "Нет ресурса",
+    "description":"Не удалось найти запрошенный ресурс"
   }
 }
